@@ -9,7 +9,7 @@ Use the green "Clone or download" button above to download this repository with 
 
 Annotated AVR Classic code
 
-* [startup.vrp](https://asna.github.io/classic-dotnet-forms/classic/start.vrp.html) - Startup program
+* [startup.vrp](https://asna.github.io/classic-dotnet-forms/classic/startup.vrp.html) - Startup program
 * [formNonModalShow.vrf](https://asna.github.io/classic-dotnet-forms/classic/formNonModalShow.vrf.html) - Non-modal form shown with Show opcode
 * [formMain.vrf](https://asna.github.io/classic-dotnet-forms/classic/formMain.vrf.html) - Main form
 * [formModalExFmt.vrf](https://asna.github.io/classic-dotnet-forms/classic/formModalExFmt.vrf.html) - Modal form shown with ExFmt opcode
