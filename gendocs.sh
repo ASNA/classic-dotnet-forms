@@ -26,7 +26,9 @@ do
 		echo "Annotating file $f"
 		python ..\\..\\prep-for-classic-pycco.py $f
 		pycco $f.annotated -d ..\\docs\\classic -l javascript 
-		rm $f.annotated		
+		rm $f.annotated	
+
+		python ..//..//extract-props-from-classic.py $f
     else
 	    echo "File $f does not exist"
 	fi	
