@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>startup.vrp.annotated</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>startup.vrp.annotated</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Program constants.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="nx">DclConst</span> <span class="nx">OPEN_FOR_READ_ONLY</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">READ_OK</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">TEXT_FILE_EOF</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> 
+<span class="nx">DclConst</span> <span class="nx">CRLF</span> <span class="nx">Value</span><span class="p">(</span><span class="nx">x</span><span class="s1">&#39;0D0A&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>All globals and constants declared in the startup program are globally available
+to all forms and programs. One convention to consider is to prefix variables 
+declared in the startup program is to prefix those variables especially intended 
+for use by any form or program is to prefix them. In this case, anytime any 
+form or program references a field that starts with 'Global_' you know that field
+is declared, and stored, here. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">DclFld</span> <span class="nx">Global_CustomerName</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Not used by this program here for a discussion point.
+DclDS Global FldScope(<em>Local) 
+   DclDSFld CustomerName Type(</em>Char) Len(40) Start(1)
+   DclDSFld CustomerAddress Type(*Char) Len(35) Start(41)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Read the notes.txt file so it can be shown in the main form.
+The text file is being read and loaded in this startup program because if its 
+loaded in the form itself there is a slight, but annoying flicker, as the textbox 
+is refreshed. Loading it ensures the form is fully populated and read to go when
+it is displayed. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">ReadTextFile</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Show the main form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">Show</span> <span class="nx">formMain</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Read the notes.txt file and put its contents in the formMain.textboxDocs
+textbox. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">BegSr</span> <span class="nx">ReadTextFile</span> 
+    <span class="nx">DclFld</span> <span class="nx">StatusCode</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer</span><span class="p">)</span> <span class="nx">Len</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> 
+    <span class="nx">DclFld</span> <span class="nx">Line</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Open the file.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">StatusCode</span> <span class="o">=</span> <span class="nx">formMain</span><span class="p">.</span><span class="nx">osFileMain</span><span class="p">.</span><span class="nx">open</span> <span class="p">(</span><span class="s1">&#39;Notes.txt&#39;</span><span class="p">,</span><span class="nx">OPEN_FOR_READ_ONLY</span><span class="p">)</span> 
+    <span class="nx">If</span> <span class="p">(</span><span class="nx">StatusCode</span> <span class="o">&lt;&gt;</span> <span class="nx">READ_OK</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Show error message if open failed.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">MsgBox</span> <span class="nx">Msg</span><span class="p">(</span><span class="s1">&#39;Notes.txt file couldn&#39;&#39;t be opened.&#39;</span><span class="p">)</span> 
+        <span class="nx">LeaveSr</span> 
+    <span class="nx">EndIf</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Clear the target textbox. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">formMain</span><span class="p">.</span><span class="nx">textboxDocs</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="o">*</span><span class="nx">Blanks</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Do a prime-the-pump read.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">StatusCode</span> <span class="o">=</span> <span class="nx">formMain</span><span class="p">.</span><span class="nx">osFileMain</span><span class="p">.</span><span class="nx">ReadLine</span><span class="p">(</span><span class="nx">Line</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Do until end of file...</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">DoWhile</span> <span class="nx">StatusCode</span> <span class="o">&lt;&gt;</span> <span class="nx">TEXT_FILE_EOF</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>Append the line of text read from the file to the textbox, appending
+a CRLF to each line.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">formMain</span><span class="p">.</span><span class="nx">textboxDocs</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">formMain</span><span class="p">.</span><span class="nx">textboxDocs</span><span class="p">.</span><span class="nx">Text</span> <span class="o">+</span> <span class="nx">Line</span> <span class="o">+</span> <span class="nx">CRLF</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>Attempt to read another line.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">StatusCode</span> <span class="o">=</span> <span class="nx">formMain</span><span class="p">.</span><span class="nx">osFileMain</span><span class="p">.</span><span class="nx">ReadLine</span><span class="p">(</span><span class="nx">Line</span><span class="p">)</span> 
+    <span class="nx">EndDo</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Close the file.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">formMain</span><span class="p">.</span><span class="nx">osFileMain</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<span class="nx">EndSr</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

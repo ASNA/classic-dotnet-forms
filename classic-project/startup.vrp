@@ -1,0 +1,67 @@
+/*$B050000500*/
+DCLPROGRAM // Startup
+INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131173)
+INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Startup')
+INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{551515D2-7112-48DB-B5D5-EAB89737C3FE}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{114B829D-68E7-470B-8C83-B4FAEB6E47F4}')
+END
+// Program constants.
+DclConst OPEN_FOR_READ_ONLY Value(0)
+DclConst READ_OK Value(0)
+DclConst TEXT_FILE_EOF Value(15) 
+DclConst CRLF Value(x'0D0A') 
+
+// All globals and constants declared in the startup program are globally available
+// to all forms and programs. One convention to consider is to prefix variables 
+// declared in the startup program is to prefix those variables especially intended 
+// for use by any form or program is to prefix them. In this case, anytime any 
+// form or program references a field that starts with 'Global_' you know that field
+// is declared, and stored, here. 
+DclFld Global_CustomerName Type(*String) 
+
+// Not used by this program here for a discussion point.
+//DclDS Global FldScope(*Local) 
+//    DclDSFld CustomerName Type(*Char) Len(40) Start(1)
+//    DclDSFld CustomerAddress Type(*Char) Len(35) Start(41)
+
+// Read the notes.txt file so it can be shown in the main form.
+// The text file is being read and loaded in this startup program because if its 
+// loaded in the form itself there is a slight, but annoying flicker, as the textbox 
+// is refreshed. Loading it ensures the form is fully populated and read to go when
+// it is displayed. 
+ReadTextFile()
+
+// Show the main form.
+Show formMain
+
+// Read the notes.txt file and put its contents in the formMain.textboxDocs
+// textbox. 
+BegSr ReadTextFile 
+    DclFld StatusCode Type(*Integer) Len(4) 
+    DclFld Line Type(*String) 
+
+    // Open the file.
+    StatusCode = formMain.osFileMain.open ('Notes.txt',OPEN_FOR_READ_ONLY) 
+    If (StatusCode <> READ_OK)
+        // Show error message if open failed.
+        MsgBox Msg('Notes.txt file couldn''t be opened.') 
+        LeaveSr 
+    EndIf  
+
+    // Clear the target textbox. 
+    formMain.textboxDocs.Text = *Blanks
+
+    // Do a prime-the-pump read.
+    StatusCode = formMain.osFileMain.ReadLine(Line) 
+    // Do until end of file...
+    DoWhile StatusCode <> TEXT_FILE_EOF
+        // Append the line of text read from the file to the textbox, appending
+        // a CRLF to each line.
+        formMain.textboxDocs.Text = formMain.textboxDocs.Text + Line + CRLF
+        // Attempt to read another line.
+        StatusCode = formMain.osFileMain.ReadLine(Line) 
+    EndDo 
+
+    // Close the file.
+    formMain.osFileMain.Close()
+EndSr

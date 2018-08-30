@@ -1,0 +1,24 @@
+This example shows the three ways to display a form in AVR Classic:
+
+Use the SHOW opcode to display a non-modal form 
+-----------------------------------------------
+The SHOW opcode displays a non-modal form. The user can switch from the displayed form back to its parent form at anytime. SHOWed forms can be left in memory with the HIDE opcode; or they can be removed from memory with the UNLOAD opcode. 
+
+Use the EXFMT opcode to display a modal form. 
+---------------------------------------------
+The EXFMT opcode displays a modal form. The parent form cannot receive focus until the EXFMTed form is either hidden or unloaded (with the HIDE and UNLOAD opcodes). 
+
+Forms displayed with either the SHOW or EXFMT opcodes cannot have parameters passed to them by the parent form. To get data to forms displayed with SHOW or EXFMT you generally need to use global data defined in the startup program. Note in this example's code it gets a little messing moving data that way.
+
+When you HIDE a form, it remains in memory and its state is persisted across different displays. This is often a good thing; consider a form with several controls and other variables for which you want the state persisted. Hiding the form does that for you--but it comes with a cost. If you hide lots of forms, it's possible that the app could overextend available 32-bit COM resources and that may impeded performance. Hide the forms you need to hide, but be prudent. Too many hidden forms may cause trouble for the app. 
+
+This example app uses a counter variable in each of its child forms that helps illustrate how form can persist state in AVR Classic. 
+
+Use the CALL opcode to display a modal form.
+--------------------------------------------
+The CALL opcode displays a non-modal form--the parent form cannot receive focus until the CALLed form is ended. Unlike forms displayed with EXFMT and SHOW, CALLed forms cannot be hidden--CALLed forms always unload from memory with either the HIDE or UNLOAD opcodes. Let that sink in: When you use HIDE with CALLed forms, the form isn't hidden--it's closed and removed from memory. Keep in mind that CALLed forms are always created from scratch--this means that a CALLed form with lots of controls may be slow to load and it also means that form state cannot be persisted with CALLed forms.
+
+To avoid confusion with this unpredictable HIDE behavior with CALLed forms, it's probably always best to use the Return opcode to return from CALLed forms.
+
+CALLed forms are displayed with the RPG CALL/PARM syntax which means that parameters can be passed to the CALLed form. These parameters are passed by reference so changes made to program call parameters in the CALLed program are recognized by the parent form. 
+

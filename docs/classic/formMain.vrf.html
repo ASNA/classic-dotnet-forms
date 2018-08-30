@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>formMain.vrf.annotated</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>formMain.vrf.annotated</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Declare constants to determine 
+which combobox item was selected. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="nx">DclConst</span> <span class="nx">NONMODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">MODAL_EXFMT</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">MODAL_CALL</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Populate the combobox.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">AddItem</span><span class="p">(</span><span class="s2">&quot;Show&quot;</span><span class="p">)</span>
+<span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">AddItem</span><span class="p">(</span><span class="s2">&quot;ExFmt&quot;</span><span class="p">)</span>
+<span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">AddItem</span><span class="p">(</span><span class="s2">&quot;Call&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Set its default, zero-based position.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">ListIndex</span> <span class="o">=</span> <span class="mi">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Declare a field for the ExFmt's parameter list.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">DclFld</span> <span class="nx">CustomerName</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Char</span><span class="p">)</span> <span class="nx">Len</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Handling the button click to display a form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">BEGSR</span> <span class="nx">buttonDisplay</span> <span class="nx">Click</span>
+ <span class="nx">DclFld</span> <span class="nx">x</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> 
+
+    <span class="nx">Select</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Use Show to display a form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">When</span> <span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">ListIndex</span> <span class="o">=</span> <span class="nx">NONMODAL</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Assign the textbox's value to a global variable.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">Global_CustomerName</span> <span class="o">=</span> <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> 
+            <span class="nx">Show</span> <span class="nx">formNonModalShow</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>This code does not change the textbox in this form 
+because this form's code execution does not pause 
+after having done the Show opcode. 
+This line of codex does get executed, but it does 
+so immediately after performing the Show opcode; 
+so the name assigned to the textbox is the exact
+save as the name assigned to the global variable 
+just before the Show as performed. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">Global_CustomerName</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Uncomment this MsgBox to help understand program
+flow with the Show opcode.              <br />
+MsgBox 'This displayed immediately after the form'</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Use ExFmt to display a form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">When</span> <span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">ListIndex</span> <span class="o">=</span> <span class="nx">MODAL_EXFMT</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Assign the textbox's value to a global variable.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">Global_CustomerName</span> <span class="o">=</span> <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> 
+            <span class="nx">ExFmt</span> <span class="nx">formModalExFmt</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>This code changes the textbox in this form 
+because this form's code execution paused 
+after having done the ExFmt opcode. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">Global_CustomerName</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>Uncomment this MsgBox to help understand program
+flow with the ExFmt opcode.              <br />
+MsgBox 'This displayed when the form closed or hidden'</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Use Call to display a form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">When</span> <span class="nx">comboboxFormSelection</span><span class="p">.</span><span class="nx">ListIndex</span> <span class="o">=</span> <span class="nx">MODAL_CALL</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>Assign the textbox's value to field used in the 
+parameter list. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">CustomerName</span> <span class="o">=</span> <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> 
+            <span class="nx">Call</span> <span class="nx">formModalCall</span>
+            <span class="nx">DclParm</span> <span class="nx">CustomerName</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Change this form's textbox upon returning.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">textboxCustomerName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">CustomerName</span>
+ <span class="nx">Endsl</span>  
+
+
+<span class="nx">ENDSR</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
