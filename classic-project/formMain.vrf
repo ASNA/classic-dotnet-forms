@@ -20,7 +20,7 @@ INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(StartUpPosition) TYPE(*INTEGER2) VALUE(1)
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{BE755B52-EDC3-4801-AA40-8FE751378CD2}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{B7B05FA3-86E4-467C-9987-B573EA1784F2}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{FBD06168-A7E9-46E6-AE1E-5F80B5699A02}')
 DCLMENU PARENT(formMain) // mnuForm1
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131176)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('mnuForm1')
@@ -55,7 +55,7 @@ INITPROP NAME(Style) TYPE(*INTEGER2) VALUE(2)
 DCLCTL CLSID('{9A541653-88B8-11CF-A6E2-00801E0111FB}') PARENT(formMain) // buttonDisplay
 INITPROP NAME(Version) TYPE(*INTEGER4) VALUE(131181)
 INITPROP NAME(_PersistType) TYPE(*INTEGER2) VALUE(3)
-INITPROP NAME(Default) TYPE(*BOOLEAN) VALUE(-1)
+INITPROP NAME(Default) TYPE(*BOOLEAN) VALUE(255)
 INITPROP NAME(Height) TYPE(*INTEGER4) VALUE(810)
 INITPROP NAME(Left) TYPE(*INTEGER4) VALUE(540)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('buttonDisplay')
@@ -179,7 +179,7 @@ INITPROP NAME(Italic) TYPE(*BOOLEAN) VALUE(0)
 INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(ScrollBars) TYPE(*INTEGER2) VALUE(2)
-INITPROP NAME(MultiLine) TYPE(*BOOLEAN) VALUE(-1)
+INITPROP NAME(MultiLine) TYPE(*BOOLEAN) VALUE(255)
 DCLCTL CLSID('{9A541647-88B8-11CF-A6E2-00801E0111FB}') PARENT(formMain) // Label2
 INITPROP NAME(Version) TYPE(*INTEGER4) VALUE(131181)
 INITPROP NAME(_PersistType) TYPE(*INTEGER2) VALUE(3)
@@ -235,13 +235,13 @@ INITPROP NAME(Italic) TYPE(*BOOLEAN) VALUE(0)
 INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(Alignment) TYPE(*INTEGER2) VALUE(2)
-INITPROP NAME(AutoSize) TYPE(*BOOLEAN) VALUE(-1)
+INITPROP NAME(AutoSize) TYPE(*BOOLEAN) VALUE(255)
 END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
 // #### Main app form. (formMain.vrf)
 //
-// [Show controls list and their properties.](formMain.vrf.controls.html)
+// #### [Show controls list and their properties.](formMain.vrf.controls.html)
 // ---
 // This is the app's main form. 
 //
@@ -253,6 +253,7 @@ END
 // * [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExFmt.vrf.html)
 // * [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
 // ---
+
 // Declare constants to determine 
 // which combobox item was selected. 
 DclConst NONMODAL Value(0)
