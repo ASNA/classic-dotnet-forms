@@ -3,7 +3,7 @@ DCLPROGRAM // Startup
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131173)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Startup')
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{551515D2-7112-48DB-B5D5-EAB89737C3FE}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{99187303-9102-47E2-BA7C-5738D24792C3}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{EAC7D105-261C-403A-8932-6BF9D1BAE36C}')
 END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
@@ -22,6 +22,7 @@ END
 // * [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExFmt.vrf.html)
 // * [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
 // ---
+
 // Program constants.
 DclConst OPEN_FOR_READ_ONLY Value(0)
 DclConst READ_OK Value(0)

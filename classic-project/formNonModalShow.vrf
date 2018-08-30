@@ -60,7 +60,7 @@ INITPROP NAME(_StockProps) TYPE(*INTEGER4) VALUE(111)
 INITPROP NAME(Caption) TYPE(*BASICSTRING) VALUE('Name')
 DCLPROP NAME(Font) TYPE(*BLOBPROPSET) CLSID('{0BE35203-8F91-11CE-9DE3-00AA004BB851}')
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Tahoma')
-INITPROP NAME(Size) TYPE(*CURRENCY) VALUE('12.01')
+INITPROP NAME(Size) TYPE(*CURRENCY) VALUE('12')
 INITPROP NAME(Charset) TYPE(*INTEGER2) VALUE(0)
 INITPROP NAME(Weight) TYPE(*INTEGER2) VALUE(400)
 INITPROP NAME(Underline) TYPE(*BOOLEAN) VALUE(0)
@@ -70,7 +70,7 @@ ENDPROP
 DCLCTL CLSID('{9A541653-88B8-11CF-A6E2-00801E0111FB}') PARENT(formNonModalShow) // buttonHide
 INITPROP NAME(Version) TYPE(*INTEGER4) VALUE(131181)
 INITPROP NAME(_PersistType) TYPE(*INTEGER2) VALUE(3)
-INITPROP NAME(Default) TYPE(*BOOLEAN) VALUE(255)
+INITPROP NAME(Default) TYPE(*BOOLEAN) VALUE(-1)
 INITPROP NAME(Height) TYPE(*INTEGER4) VALUE(810)
 INITPROP NAME(Left) TYPE(*INTEGER4) VALUE(4860)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('buttonHide')
@@ -143,7 +143,7 @@ INITPROP NAME(_StockProps) TYPE(*INTEGER4) VALUE(111)
 INITPROP NAME(Caption) TYPE(*BASICSTRING) VALUE('[TimesCalled]')
 DCLPROP NAME(Font) TYPE(*BLOBPROPSET) CLSID('{0BE35203-8F91-11CE-9DE3-00AA004BB851}')
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Tahoma')
-INITPROP NAME(Size) TYPE(*CURRENCY) VALUE('12.01')
+INITPROP NAME(Size) TYPE(*CURRENCY) VALUE('12')
 INITPROP NAME(Charset) TYPE(*INTEGER2) VALUE(0)
 INITPROP NAME(Weight) TYPE(*INTEGER2) VALUE(400)
 INITPROP NAME(Underline) TYPE(*BOOLEAN) VALUE(0)
@@ -151,6 +151,19 @@ INITPROP NAME(Italic) TYPE(*BOOLEAN) VALUE(0)
 INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 END
+// #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
+// ---
+// #### Non-modal form shown with Show opcode.
+// ---
+// [Show controls list and their properties.](formMain.vrf.controls.html)
+//
+// This program shows the three ways to display Windows forms with AVR Classic. 
+// [The startup program: startup.vrp.html](startup.vrp) 
+// [The main form: formMain.vrf.html](formMain.vrf.html)
+// [The non-modal form displayed with Show: formNonModalShow.vrf.html](formNonModalShow.vrf.html)
+// [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExfmt.vrf.html)
+// [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
+// ---
 DclFld Counter Type(*Integer) Len(4) 
 
 // This event handler fires when this form becomes the active form. 

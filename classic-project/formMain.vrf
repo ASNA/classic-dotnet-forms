@@ -20,7 +20,7 @@ INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(StartUpPosition) TYPE(*INTEGER2) VALUE(1)
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{BE755B52-EDC3-4801-AA40-8FE751378CD2}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{7B28DE14-FAB1-49A4-A885-1684F13EDF54}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{B7B05FA3-86E4-467C-9987-B573EA1784F2}')
 DCLMENU PARENT(formMain) // mnuForm1
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131176)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('mnuForm1')
@@ -270,11 +270,8 @@ comboboxFormSelection.ListIndex = 0
 // Declare a field for the ExFmt's parameter list.
 DclFld CustomerName Type(*Char) Len(40)
 
-
 // Handling the button click to display a form.
 BEGSR buttonDisplay Click
- DclFld x Type(*String) 
-
     Select
         // Use Show to display a form.
         When comboboxFormSelection.ListIndex = NONMODAL
@@ -322,6 +319,5 @@ BEGSR buttonDisplay Click
             // Change this form's textbox upon returning.
             textboxCustomerName.Text = CustomerName
  Endsl  
-
 
 ENDSR
