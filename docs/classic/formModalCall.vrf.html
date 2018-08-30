@@ -17,10 +17,23 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Declare the entry point and parameter list for this called program.</p>
+      <h4><a href="https://github.com/ASNA/classic-dotnet-forms">Return to repo</a></h4>
+<hr />
+<p>This is the project's modal form displayed with Call.<br>
+<a href="formModalCall.vrf.controls.html">Form's controls list and their properties.</a></p>
+<hr />
+<p>Project source members: </p>
+<ul>
+<li><a href="startup.vrp">The startup program: startup.vrp.html</a> </li>
+<li><a href="formMain.vrf.html">The main form: formMain.vrf.html</a></li>
+<li><a href="formNonModalShow.vrf.html">The non-modal form displayed with Show: formNonModalShow.vrf.html</a></li>
+<li><a href="formModalExFmt.vrf.html">The modal form displayed with ExFmt: formNonModalExFmt.vrf.html</a></li>
+<li><a href="formModalCall.vrf.html">The modal form displayed with Call: formModalCall.vrf.html</a></li>
+</ul>
+<hr />
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="nx">DclPList</span> <span class="o">*</span><span class="nx">Entry</span></pre></div>
+      <div class="highlight"><pre><span></span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -28,6 +41,18 @@
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Declare the entry point and parameter list for this called program.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">DclPList</span> <span class="o">*</span><span class="nx">Entry</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
       </div>
       <p>A *String type can't be as a parameter type in a parameter list.</p>
     </div>
@@ -38,10 +63,10 @@
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-2'>
+  <div class='section' id='section-3'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-2'>#</a>
+        <a class='octothorpe' href='#section-3'>#</a>
       </div>
       <p>This event handler fires when this form becomes the active form. </p>
     </div>
@@ -50,10 +75,10 @@
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-3'>
+  <div class='section' id='section-4'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-3'>#</a>
+        <a class='octothorpe' href='#section-4'>#</a>
       </div>
       <p>Assign this form's textbox value from the call/parm parameter. Because
 this fixed-length field probably has trailing blanks, trim it first. </p>
@@ -63,10 +88,10 @@ this fixed-length field probably has trailing blanks, trim it first. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-4'>
+  <div class='section' id='section-5'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-4'>#</a>
+        <a class='octothorpe' href='#section-5'>#</a>
       </div>
       <p>Increment the counter to help illustrate how state can be persisted 
 for a form. </p>
@@ -78,10 +103,10 @@ for a form. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-5'>
+  <div class='section' id='section-6'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-5'>#</a>
+        <a class='octothorpe' href='#section-6'>#</a>
       </div>
       <p>When a CALLed form is hidden, it does NOT stay in memory. For CALLed forms
 the Hide opcode does exactly the same thing as the Unload opcode.</p>
@@ -91,10 +116,10 @@ the Hide opcode does exactly the same thing as the Unload opcode.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-6'>
+  <div class='section' id='section-7'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-6'>#</a>
+        <a class='octothorpe' href='#section-7'>#</a>
       </div>
       <p>While Hide or Unload can be used to return from a CALled program, give the 
 potential confusion that Hide could cause in this case, it's probably best
@@ -106,10 +131,10 @@ to always return from CALLed forms with the Return opcode.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-7'>
+  <div class='section' id='section-8'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-7'>#</a>
+        <a class='octothorpe' href='#section-8'>#</a>
       </div>
       <p>Hide *This</p>
     </div>
@@ -119,10 +144,10 @@ to always return from CALLed forms with the Return opcode.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-8'>
+  <div class='section' id='section-9'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-8'>#</a>
+        <a class='octothorpe' href='#section-9'>#</a>
       </div>
       <p>Unload this form from memory--its state doesn't persist. </p>
     </div>
@@ -132,10 +157,10 @@ to always return from CALLed forms with the Return opcode.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-9'>
+  <div class='section' id='section-10'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-9'>#</a>
+        <a class='octothorpe' href='#section-10'>#</a>
       </div>
       <p>Unload *This </p>
     </div>

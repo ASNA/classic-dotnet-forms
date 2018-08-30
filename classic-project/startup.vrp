@@ -3,18 +3,16 @@ DCLPROGRAM // Startup
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131173)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Startup')
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{551515D2-7112-48DB-B5D5-EAB89737C3FE}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{EAC7D105-261C-403A-8932-6BF9D1BAE36C}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{304A6D96-7350-4355-91B8-979F3EFA4599}')
 END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
-// #### Startup program (startup.vrp)
+// This is the projects's startup program.
 // ---
 // ![](screen-shot-01.png?4)<br>
 // <small>This program's display</small>
-// 
-// This is the app's startup program. 
-//
-// Source members: 
+// ---
+// Project source members: 
 //
 // * [The startup program: startup.vrp.html](startup.vrp) 
 // * [The main form: formMain.vrf.html](formMain.vrf.html)

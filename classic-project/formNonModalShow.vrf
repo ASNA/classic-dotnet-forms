@@ -153,17 +153,18 @@ ENDPROP
 END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
-// #### Non-modal form shown with Show opcode.
+// This is the project's non-modal form displayed with Show.<br>
+// [Form's controls list and their properties.](formNonModalShow.vrf.controls.html)
 // ---
-// [Show controls list and their properties.](formMain.vrf.controls.html)
+// Project source members: 
 //
-// This program shows the three ways to display Windows forms with AVR Classic. 
-// [The startup program: startup.vrp.html](startup.vrp) 
-// [The main form: formMain.vrf.html](formMain.vrf.html)
-// [The non-modal form displayed with Show: formNonModalShow.vrf.html](formNonModalShow.vrf.html)
-// [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExfmt.vrf.html)
-// [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
+// * [The startup program: startup.vrp.html](startup.vrp) 
+// * [The main form: formMain.vrf.html](formMain.vrf.html)
+// * [The non-modal form displayed with Show: formNonModalShow.vrf.html](formNonModalShow.vrf.html)
+// * [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExFmt.vrf.html)
+// * [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
 // ---
+
 DclFld Counter Type(*Integer) Len(4) 
 
 // This event handler fires when this form becomes the active form. 
