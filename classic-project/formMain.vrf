@@ -20,7 +20,7 @@ INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(StartUpPosition) TYPE(*INTEGER2) VALUE(1)
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{BE755B52-EDC3-4801-AA40-8FE751378CD2}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{944EA8EF-4DF6-4F60-A1CD-1C41788B0ABE}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{2D66D67B-A88D-4C37-96EE-1363B56B5FD8}')
 DCLMENU PARENT(formMain) // mnuForm1
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131176)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('mnuForm1')
@@ -237,6 +237,19 @@ ENDPROP
 INITPROP NAME(Alignment) TYPE(*INTEGER2) VALUE(2)
 INITPROP NAME(AutoSize) TYPE(*BOOLEAN) VALUE(-1)
 END
+// #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
+// ---
+// #### The program's main form. 
+// ---
+// [Show controls list and their properties.](formMain.vrf.controls.html)
+//
+// This program shows the three ways to display Windows forms with AVR Classic. 
+// [The startup program: startup.vrp.html](startup.vrp) 
+// [The main form: formMain.vrf.html](formMain.vrf.html)
+// [The non-modal form displayed with Show: formNonModalShow.vrf.html](formNonModalShow.vrf.html)
+// [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExfmt.vrf.html)
+// [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
+// ---
 // Declare constants to determine 
 // which combobox item was selected. 
 DclConst NONMODAL Value(0)
