@@ -20,7 +20,7 @@ INITPROP NAME(Strikethrough) TYPE(*BOOLEAN) VALUE(0)
 ENDPROP
 INITPROP NAME(StartUpPosition) TYPE(*INTEGER2) VALUE(1)
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{BE755B52-EDC3-4801-AA40-8FE751378CD2}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{FA4C0F2A-2AA3-4D6E-BCA0-CB427E87C980}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{275B0C9C-609D-449A-AD92-C0AB9B7921DF}')
 DCLMENU PARENT(formMain) // mnuForm1
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131176)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('mnuForm1')
@@ -240,9 +240,8 @@ END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
 
-// This is the project's main form. 
-// [Show controls list and their properties.](formMain.vrf.controls.html)
-
+// This is the project's main form. <br>
+// [Controls list and their properties.](formMain.vrf.controls.html)
 // ---
 // Project source members: 
 //
