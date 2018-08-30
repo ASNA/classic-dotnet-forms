@@ -3,20 +3,19 @@ DCLPROGRAM // Startup
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131173)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Startup')
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{551515D2-7112-48DB-B5D5-EAB89737C3FE}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{CF156C02-D4A7-45BA-A5AA-F90016694170}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{453D60A1-7F3B-4758-B9E1-97BD9096BAB0}')
 END
-// [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
+// #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
 // #### Startup program (startup.vrp)
 // ---
-// [Show controls list and their properties.](formMain.vrf.controls.html)
-//
-// [See file schema here.](http://1clickurls.com/yT1m-Mq)
+// [Show controls list and their properties.](startup.vrp.controls.html)
 //
 // ![](screen-shot-01.png?4)<br>
 // <small>This program's display</small>
 // 
 // This program shows the three ways to display Windows forms with AVR Classic. 
+// [formMain.vrf.html](formMain.vrf.html)
 // ---
 
 // Program constants.
