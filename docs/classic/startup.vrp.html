@@ -23,18 +23,23 @@
 <hr />
 <p><img alt="" src="screen-shot-01.png?4" /><br>
 <small>This program's display</small></p>
-<p>This program shows the three ways to display Windows forms with AVR Classic. </p>
+<p>This is the app's startup program. </p>
+<p>Source members: </p>
 <ul>
 <li><a href="startup.vrp">The startup program: startup.vrp.html</a> </li>
 <li><a href="formMain.vrf.html">The main form: formMain.vrf.html</a></li>
 <li><a href="formNonModalShow.vrf.html">The non-modal form displayed with Show: formNonModalShow.vrf.html</a></li>
-<li><a href="formModalExfmt.vrf.html">The modal form displayed with ExFmt: formNonModalExFmt.vrf.html</a></li>
+<li><a href="formModalExFmt.vrf.html">The modal form displayed with ExFmt: formNonModalExFmt.vrf.html</a></li>
 <li><a href="formModalCall.vrf.html">The modal form displayed with Call: formModalCall.vrf.html</a></li>
 </ul>
 <hr />
+<p>Program constants.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span></pre></div>
+      <div class="highlight"><pre><span></span><span class="nx">DclConst</span> <span class="nx">OPEN_FOR_READ_ONLY</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">READ_OK</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">DclConst</span> <span class="nx">TEXT_FILE_EOF</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> 
+<span class="nx">DclConst</span> <span class="nx">CRLF</span> <span class="nx">Value</span><span class="p">(</span><span class="nx">x</span><span class="s1">&#39;0D0A&#39;</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -42,21 +47,6 @@
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-1'>#</a>
-      </div>
-      <p>Program constants.</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre><span class="nx">DclConst</span> <span class="nx">OPEN_FOR_READ_ONLY</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nx">DclConst</span> <span class="nx">READ_OK</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nx">DclConst</span> <span class="nx">TEXT_FILE_EOF</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> 
-<span class="nx">DclConst</span> <span class="nx">CRLF</span> <span class="nx">Value</span><span class="p">(</span><span class="nx">x</span><span class="s1">&#39;0D0A&#39;</span><span class="p">)</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
-  <div class='section' id='section-2'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-2'>#</a>
       </div>
       <p>All globals and constants declared in the startup program are globally available
 to all forms and programs. One convention to consider is to prefix variables 
@@ -70,10 +60,10 @@ is declared, and stored, here. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-3'>
+  <div class='section' id='section-2'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-3'>#</a>
+        <a class='octothorpe' href='#section-2'>#</a>
       </div>
       <p>Not used by this program here for a discussion point.
 DclDS Global FldScope(<em>Local) 
@@ -85,10 +75,10 @@ DclDS Global FldScope(<em>Local)
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-4'>
+  <div class='section' id='section-3'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-4'>#</a>
+        <a class='octothorpe' href='#section-3'>#</a>
       </div>
       <p>Read the notes.txt file so it can be shown in the main form.
 The text file is being read and loaded in this startup program because if its 
@@ -101,10 +91,10 @@ it is displayed. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-5'>
+  <div class='section' id='section-4'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-5'>#</a>
+        <a class='octothorpe' href='#section-4'>#</a>
       </div>
       <p>Show the main form.</p>
     </div>
@@ -113,10 +103,10 @@ it is displayed. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-6'>
+  <div class='section' id='section-5'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-6'>#</a>
+        <a class='octothorpe' href='#section-5'>#</a>
       </div>
       <p>Read the notes.txt file and put its contents in the formMain.textboxDocs
 textbox. </p>
@@ -128,10 +118,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-7'>
+  <div class='section' id='section-6'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-7'>#</a>
+        <a class='octothorpe' href='#section-6'>#</a>
       </div>
       <p>Open the file.</p>
     </div>
@@ -141,10 +131,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-8'>
+  <div class='section' id='section-7'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-8'>#</a>
+        <a class='octothorpe' href='#section-7'>#</a>
       </div>
       <p>Show error message if open failed.</p>
     </div>
@@ -155,10 +145,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-9'>
+  <div class='section' id='section-8'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-9'>#</a>
+        <a class='octothorpe' href='#section-8'>#</a>
       </div>
       <p>Clear the target textbox. </p>
     </div>
@@ -167,10 +157,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-10'>
+  <div class='section' id='section-9'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-10'>#</a>
+        <a class='octothorpe' href='#section-9'>#</a>
       </div>
       <p>Do a prime-the-pump read.</p>
     </div>
@@ -179,10 +169,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-11'>
+  <div class='section' id='section-10'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-11'>#</a>
+        <a class='octothorpe' href='#section-10'>#</a>
       </div>
       <p>Do until end of file...</p>
     </div>
@@ -191,10 +181,10 @@ textbox. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-12'>
+  <div class='section' id='section-11'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-12'>#</a>
+        <a class='octothorpe' href='#section-11'>#</a>
       </div>
       <p>Append the line of text read from the file to the textbox, appending
 a CRLF to each line.</p>
@@ -204,10 +194,10 @@ a CRLF to each line.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-13'>
+  <div class='section' id='section-12'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-13'>#</a>
+        <a class='octothorpe' href='#section-12'>#</a>
       </div>
       <p>Attempt to read another line.</p>
     </div>
@@ -217,10 +207,10 @@ a CRLF to each line.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-14'>
+  <div class='section' id='section-13'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-14'>#</a>
+        <a class='octothorpe' href='#section-13'>#</a>
       </div>
       <p>Close the file.</p>
     </div>

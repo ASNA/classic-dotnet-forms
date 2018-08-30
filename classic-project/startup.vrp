@@ -3,7 +3,7 @@ DCLPROGRAM // Startup
 INITPROP NAME(_Version) TYPE(*INTEGER4) VALUE(131173)
 INITPROP NAME(Name) TYPE(*BASICSTRING) VALUE('Startup')
 INITPROP NAME(CreationID) TYPE(*BASICSTRING) VALUE('{551515D2-7112-48DB-B5D5-EAB89737C3FE}')
-INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{E374626B-16EB-4659-BE8F-5A3124C1EF9F}')
+INITPROP NAME(ModifiedID) TYPE(*BASICSTRING) VALUE('{99187303-9102-47E2-BA7C-5738D24792C3}')
 END
 // #### [Return to repo](https://github.com/ASNA/classic-dotnet-forms)
 // ---
@@ -12,15 +12,16 @@ END
 // ![](screen-shot-01.png?4)<br>
 // <small>This program's display</small>
 // 
-// This program shows the three ways to display Windows forms with AVR Classic. 
+// This is the app's startup program. 
+//
+// Source members: 
 //
 // * [The startup program: startup.vrp.html](startup.vrp) 
 // * [The main form: formMain.vrf.html](formMain.vrf.html)
 // * [The non-modal form displayed with Show: formNonModalShow.vrf.html](formNonModalShow.vrf.html)
-// * [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExfmt.vrf.html)
+// * [The modal form displayed with ExFmt: formNonModalExFmt.vrf.html](formModalExFmt.vrf.html)
 // * [The modal form displayed with Call: formModalCall.vrf.html](formModalCall.vrf.html)
 // ---
-
 // Program constants.
 DclConst OPEN_FOR_READ_ONLY Value(0)
 DclConst READ_OK Value(0)
