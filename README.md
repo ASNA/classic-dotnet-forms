@@ -16,6 +16,16 @@ Annotated AVR Classic code
 * [formModalCall.vrf](https://asna.github.io/classic-dotnet-forms/classic/formModalCall.vrf.html) - Modal form shown with Call opcode
 
 
+Annotated AVR for .NET code
+
+* [startup.vr](https://asna.github.io/classic-dotnet-forms/dotnet/Startup.vr.html) - Startup program
+* [formMain.vr](https://asna.github.io/classic-dotnet-forms/dotnet/formMain.vr.html) - Main form
+* [formNonModalShow.vr](https://asna.github.io/classic-dotnet-forms/dotnet/formNonModal.vr.html) - Non-modal form shown with Show method
+* [formModalExFmt.vr](https://asna.github.io/classic-dotnet-forms/dotnet/formModal.vr.html) - Modal form shown with ShowDialog method
+
+
+
+
 
 
 
