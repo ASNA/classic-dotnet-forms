@@ -62,7 +62,7 @@
 
     <span class="o">/</span><span class="nx">endregion</span>
 
-    <span class="nx">BegSr</span> <span class="nx">formNonModal_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
+    <span class="nx">BegSr</span> <span class="nx">formModal_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
     </div>
@@ -79,7 +79,7 @@ Put form "startup" code here (ie open files).</p>
     <div class='code'>
       <div class="highlight"><pre>    <span class="nx">EndSr</span>
 
-    <span class="nx">BegSr</span> <span class="nx">formNonModal_FormClosing</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">FormClosing</span><span class="p">)</span>
+    <span class="nx">BegSr</span> <span class="nx">formModal_FormClosing</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">FormClosing</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">FormClosingEventArgs</span><span class="p">)</span></pre></div>
     </div>
@@ -96,9 +96,18 @@ Put form "housecleaning" code here (ie close files).</p>
     <div class='code'>
       <div class="highlight"><pre>    <span class="nx">EndSr</span>
 
-    <span class="nx">BegSr</span> <span class="nx">buttonOK_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonOK</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
+    <span class="nx">BegSr</span> <span class="nx">buttonHide_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonHide</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
+
+        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Hide</span><span class="p">()</span>
+    <span class="nx">EndSr</span>
+    
+    <span class="nx">BegSr</span> <span class="nx">buttonClose_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonClose</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
+
+        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
     <span class="nx">EndSr</span>
     
 <span class="nx">EndClass</span>

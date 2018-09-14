@@ -5,6 +5,7 @@ Using System.Data
 Using System.Drawing
 Using System.Text
 Using System.Windows.Forms
+Using System.IO 
 
 DclNamespace dotnet_project
 
@@ -25,18 +26,20 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
 
 	/endregion
 
-//    DclFld ModalForm Type(formModal) 
-//    DclFld NonModalForm Type(formNonModal) 
+  //  DclFld ModalForm Type(formModal) New()
+  //  DclFld NonModalForm Type(formNonModal) New()
 
-    DclConst MODAL Value('1')
-    DclConst NONMODAL Value('2')
+    DclConst NONMODAL Value('1')
+    DclConst MODAL Value('2')
 
 	BegSr formMain_Load Access(*Private) Event(*this.Load)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
-		// Occurs when form is first loaded.
-		// Put form "startup" code here (ie open files).
+        DclFld BinaryPath Type(*String) 
+
+        BinaryPath = AppDomain.CurrentDomain.BaseDirectory
+        textboxNotes.Text = File.ReadAllText(BinaryPath + '\notes.txt') 
 
         PopulateComboBox()
 	EndSr
@@ -44,8 +47,8 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
     BegSr PopulateComboBox
         comboboxFormType.DisplayMember = 'Text'
         comboboxFormType.ValueMember = 'Value'
-        comboboxFormType.Items.Add(*New ComboboxItem('Show', MODAL))
-        comboboxFormType.Items.Add(*New ComboboxItem('ShowDialog', NONMODAL))
+        comboboxFormType.Items.Add(*New ComboboxItem('Show', NONMODAL))
+        comboboxFormType.Items.Add(*New ComboboxItem('ShowDialog', MODAL))
         comboboxFormType.SelectedIndex = 0
     EndSr
 
@@ -69,26 +72,29 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         EndIf  
 	EndSr
 
-    BegSr ShowModalForm
-        DclFld ModalForm Type(formModal) New()
-
-        ModalForm.Show()        
-    EndSr
-
     BegSr ShowNonModalForm
         DclFld NonModalForm Type(formNonModal) New()
 
+        NonModalForm.Show()        
+    EndSr
+
+    BegSr ShowModalForm
+        //DclFld ModalForm Type(formModal) New()
         DclFld dr Type(DialogResult) 
 
-        dr = NonModalForm.ShowDialog()
+        dr = ModalForm.ShowDialog()
         If (dr = DialogResult.OK) 
             MsgBox 'OK was clicked'
         Else
             MsgBox 'Cancel was clicked'
         Endif 
-    EndSr
 
-	
+        // Although it's [disputed](https://goo.gl/fRKJrQ) it's a good practice
+        // to call a ShowDialog-displayed form's Dispose() before the form goes 
+        // out of scope. 
+        ModalForm.Dispose()
+    EndSr
+    	
 EndClass
 
 BegClass ComboboxItem

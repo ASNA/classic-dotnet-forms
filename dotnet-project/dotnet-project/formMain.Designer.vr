@@ -8,6 +8,7 @@ BegClass formMain Partial(*Yes)
 		*this.comboboxFormType = *new System.Windows.Forms.ComboBox()
 		*this.textBox1 = *new System.Windows.Forms.TextBox()
 		*this.label1 = *new System.Windows.Forms.Label()
+		*this.textboxNotes = *new System.Windows.Forms.TextBox()
 		*this.SuspendLayout()
 		//
 		//buttonDisplayForm
@@ -44,11 +45,22 @@ BegClass formMain Partial(*Yes)
 		*this.label1.TabIndex = 3I
 		*this.label1.Text = "Name"
 		//
+		//textboxNotes
+		//
+		*this.textboxNotes.Font = *new System.Drawing.Font("Source Code Pro", 9, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.textboxNotes.Location = *new System.Drawing.Point(326I, 80I)
+		*this.textboxNotes.Multiline = *True
+		*this.textboxNotes.Name = "textboxNotes"
+		*this.textboxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+		*this.textboxNotes.Size = *new System.Drawing.Size(519I, 425I)
+		*this.textboxNotes.TabIndex = 4I
+		//
 		//formMain
 		//
 		*this.AutoScaleDimensions = *new System.Drawing.SizeF(9, 20)
 		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		*this.ClientSize = *new System.Drawing.Size(910I, 551I)
+		*this.Controls.Add(*this.textboxNotes)
 		*this.Controls.Add(*this.label1)
 		*this.Controls.Add(*this.textBox1)
 		*this.Controls.Add(*this.comboboxFormType)
@@ -65,6 +77,7 @@ BegClass formMain Partial(*Yes)
 	DclFld comboboxFormType Type(System.Windows.Forms.ComboBox) Access(*Private) WithEvents(*Yes)
 	DclFld textBox1 Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
 	DclFld label1 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	DclFld textboxNotes Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
 	//Required by the Windows Form Designer
 	DclFld components Type(System.ComponentModel.IContainer) Inz(*Nothing)
 	

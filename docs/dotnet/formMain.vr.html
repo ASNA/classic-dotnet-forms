@@ -27,6 +27,7 @@
 <span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Drawing</span>
 <span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Text</span>
 <span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span><span class="p">.</span><span class="nx">Forms</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">IO</span> 
 
 <span class="nx">DclNamespace</span> <span class="nx">dotnet_project</span>
 
@@ -69,36 +70,30 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      <p>DclFld ModalForm Type(formModal) 
-   DclFld NonModalForm Type(formNonModal) </p>
+      <p>DclFld ModalForm Type(formModal) New()
+ DclFld NonModalForm Type(formNonModal) New()</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">DclConst</span> <span class="nx">MODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
-    <span class="nx">DclConst</span> <span class="nx">NONMODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+      <div class="highlight"><pre>    <span class="nx">DclConst</span> <span class="nx">NONMODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+    <span class="nx">DclConst</span> <span class="nx">MODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
 
     <span class="nx">BegSr</span> <span class="nx">formMain_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
-  <div class='section' id='section-4'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-4'>#</a>
-      </div>
-      <p>Occurs when form is first loaded.
-Put form "startup" code here (ie open files).</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">PopulateComboBox</span><span class="p">()</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
+
+        <span class="nx">DclFld</span> <span class="nx">BinaryPath</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> 
+
+        <span class="nx">BinaryPath</span> <span class="o">=</span> <span class="nx">AppDomain</span><span class="p">.</span><span class="nx">CurrentDomain</span><span class="p">.</span><span class="nx">BaseDirectory</span>
+        <span class="nx">textboxNotes</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">File</span><span class="p">.</span><span class="nx">ReadAllText</span><span class="p">(</span><span class="nx">BinaryPath</span> <span class="o">+</span> <span class="s1">&#39;\notes.txt&#39;</span><span class="p">)</span> 
+
+        <span class="nx">PopulateComboBox</span><span class="p">()</span>
     <span class="nx">EndSr</span>
 
     <span class="nx">BegSr</span> <span class="nx">PopulateComboBox</span>
         <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">DisplayMember</span> <span class="o">=</span> <span class="s1">&#39;Text&#39;</span>
         <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">ValueMember</span> <span class="o">=</span> <span class="s1">&#39;Value&#39;</span>
-        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;Show&#39;</span><span class="p">,</span> <span class="nx">MODAL</span><span class="p">))</span>
-        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;ShowDialog&#39;</span><span class="p">,</span> <span class="nx">NONMODAL</span><span class="p">))</span>
+        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;Show&#39;</span><span class="p">,</span> <span class="nx">NONMODAL</span><span class="p">))</span>
+        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;ShowDialog&#39;</span><span class="p">,</span> <span class="nx">MODAL</span><span class="p">))</span>
         <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">SelectedIndex</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="nx">EndSr</span>
 
@@ -122,26 +117,48 @@ Put form "startup" code here (ie open files).</p>
         <span class="nx">EndIf</span>  
     <span class="nx">EndSr</span>
 
-    <span class="nx">BegSr</span> <span class="nx">ShowModalForm</span>
-        <span class="nx">DclFld</span> <span class="nx">ModalForm</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formModal</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
-
-        <span class="nx">ModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">()</span>        
-    <span class="nx">EndSr</span>
-
     <span class="nx">BegSr</span> <span class="nx">ShowNonModalForm</span>
         <span class="nx">DclFld</span> <span class="nx">NonModalForm</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formNonModal</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
 
-        <span class="nx">DclFld</span> <span class="nx">dr</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">DialogResult</span><span class="p">)</span> 
+        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">()</span>        
+    <span class="nx">EndSr</span>
 
-        <span class="nx">dr</span> <span class="o">=</span> <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">ShowDialog</span><span class="p">()</span>
+    <span class="nx">BegSr</span> <span class="nx">ShowModalForm</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>DclFld ModalForm Type(formModal) New()</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">DclFld</span> <span class="nx">dr</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">DialogResult</span><span class="p">)</span> 
+
+        <span class="nx">dr</span> <span class="o">=</span> <span class="nx">ModalForm</span><span class="p">.</span><span class="nx">ShowDialog</span><span class="p">()</span>
         <span class="nx">If</span> <span class="p">(</span><span class="nx">dr</span> <span class="o">=</span> <span class="nx">DialogResult</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> 
             <span class="nx">MsgBox</span> <span class="s1">&#39;OK was clicked&#39;</span>
         <span class="nx">Else</span>
             <span class="nx">MsgBox</span> <span class="s1">&#39;Cancel was clicked&#39;</span>
-        <span class="nx">Endif</span> 
+        <span class="nx">Endif</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Although it's <a href="https://goo.gl/fRKJrQ">disputed</a> it's a good practice
+to call a ShowDialog-displayed form's Dispose() before the form goes 
+out of scope. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">ModalForm</span><span class="p">.</span><span class="nx">Dispose</span><span class="p">()</span>
     <span class="nx">EndSr</span>
-
-    
+        
 <span class="nx">EndClass</span>
 
 <span class="nx">BegClass</span> <span class="nx">ComboboxItem</span>

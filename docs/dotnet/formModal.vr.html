@@ -62,9 +62,13 @@
 
     <span class="o">/</span><span class="nx">endregion</span>
 
-    <span class="nx">BegSr</span> <span class="nx">formModal_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
+    <span class="nx">DclFld</span> <span class="nx">Counter</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span> 
+
+    <span class="nx">BegSr</span> <span class="nx">formNonModal_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
+
+        <span class="nx">Counter</span> <span class="o">+=</span> <span class="mi">1</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -73,15 +77,10 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      <p>Occurs when form is first loaded.
-Put form "startup" code here (ie open files).</p>
+      <p>Occurs when form is first loaded.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">EndSr</span>
-
-    <span class="nx">BegSr</span> <span class="nx">formModal_FormClosing</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">FormClosing</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">FormClosingEventArgs</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -90,12 +89,35 @@ Put form "startup" code here (ie open files).</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
+      <p>Put form "startup" code here (ie open files).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">EndSr</span>
+
+    <span class="nx">BegSr</span> <span class="nx">formNonModal_FormClosing</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">FormClosing</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">FormClosingEventArgs</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
       <p>Occurs when form is closing.
 Put form "housecleaning" code here (ie close files).</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="nx">EndSr</span>
 
+    <span class="nx">BegSr</span> <span class="nx">buttonOK_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonOK</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
+    <span class="nx">EndSr</span>
+    
+
+    
 <span class="nx">EndClass</span>
 
 </pre></div>

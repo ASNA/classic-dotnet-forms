@@ -47,18 +47,18 @@
     <Compile Include="formMain.vr">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formModal.Designer.vr">
-      <SubType>Code</SubType>
-      <DependentUpon>formModal.vr</DependentUpon>
-    </Compile>
-    <Compile Include="formModal.vr">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="formNonModal.Designer.vr">
       <SubType>Code</SubType>
       <DependentUpon>formNonModal.vr</DependentUpon>
     </Compile>
     <Compile Include="formNonModal.vr">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formModal.Designer.vr">
+      <SubType>Code</SubType>
+      <DependentUpon>formModal.vr</DependentUpon>
+    </Compile>
+    <Compile Include="formModal.vr">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.vr" />
@@ -69,11 +69,11 @@
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.vr</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formModal.resx">
-      <DependentUpon>formModal.vr</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formNonModal.resx">
       <DependentUpon>formNonModal.vr</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formModal.resx">
+      <DependentUpon>formModal.vr</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

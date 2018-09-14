@@ -25,15 +25,20 @@ BegClass formModal Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Y
 
 	/endregion
 
-	BegSr formModal_Load Access(*Private) Event(*this.Load)
+    DclFld Counter Type(*Integer4) 
+
+	BegSr formNonModal_Load Access(*Private) Event(*this.Load)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
+        Counter += 1
+
 		// Occurs when form is first loaded.
+
 		// Put form "startup" code here (ie open files).
 	EndSr
 
-	BegSr formModal_FormClosing Access(*Private) Event(*this.FormClosing)
+	BegSr formNonModal_FormClosing Access(*Private) Event(*this.FormClosing)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
 
@@ -41,4 +46,11 @@ BegClass formModal Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Y
 		// Put form "housecleaning" code here (ie close files).
 	EndSr
 
+	BegSr buttonOK_Click Access(*Private) Event(*this.buttonOK.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+	EndSr
+	
+
+	
 EndClass

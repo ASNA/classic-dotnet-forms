@@ -25,7 +25,7 @@ BegClass formNonModal Extends(System.Windows.Forms.Form) Access(*Public) Partial
 
 	/endregion
 
-	BegSr formNonModal_Load Access(*Private) Event(*this.Load)
+	BegSr formModal_Load Access(*Private) Event(*this.Load)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
@@ -33,7 +33,7 @@ BegClass formNonModal Extends(System.Windows.Forms.Form) Access(*Public) Partial
 		// Put form "startup" code here (ie open files).
 	EndSr
 
-	BegSr formNonModal_FormClosing Access(*Private) Event(*this.FormClosing)
+	BegSr formModal_FormClosing Access(*Private) Event(*this.FormClosing)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
 
@@ -41,9 +41,18 @@ BegClass formNonModal Extends(System.Windows.Forms.Form) Access(*Public) Partial
 		// Put form "housecleaning" code here (ie close files).
 	EndSr
 
-	BegSr buttonOK_Click Access(*Private) Event(*this.buttonOK.Click)
+	BegSr buttonHide_Click Access(*Private) Event(*this.buttonHide.Click)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
+
+        *This.Hide()
+	EndSr
+	
+	BegSr buttonClose_Click Access(*Private) Event(*this.buttonClose.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+        *This.Close()
 	EndSr
 	
 EndClass
