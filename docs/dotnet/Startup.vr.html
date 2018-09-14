@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>Startup.vr.annotated</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>Startup.vr.annotated</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="nx">Using</span> <span class="nx">System</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Text</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Windows</span><span class="p">.</span><span class="nx">Forms</span> 
+
+<span class="nx">BegClass</span> <span class="nx">Startup</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
+   
+    <span class="nx">BegSr</span> <span class="nx">Main</span> <span class="nx">Shared</span><span class="p">(</span><span class="o">*</span><span class="nx">Yes</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> <span class="nx">Attributes</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">STAThread</span><span class="p">())</span>
+        <span class="nx">DclSrParm</span> <span class="nx">Args</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Rank</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="nx">DclFld</span> <span class="nx">f</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formMain</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
+
+        <span class="nx">Application</span><span class="p">.</span><span class="nx">EnableVisualStyles</span><span class="p">()</span>
+        <span class="nx">Application</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>         
+    <span class="nx">EndSr</span> 
+<span class="nx">EndClass</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

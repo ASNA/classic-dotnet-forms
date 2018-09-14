@@ -1,6 +1,6 @@
 # 
 #
-dotnetfiles=(formMain.vr)
+dotnetfiles=(Startup.vr formMain.vr formModal.vr formNonModal.vr)
 classicfiles=(startup.vrp formMain.vrf formModalCall.vrf formModalExFmt.vrf formNonModalShow.vrf)
 
 # Annotate .NET project files.
@@ -10,6 +10,7 @@ do
 	if [ -f $f ]; then
 		echo "Annotating file $f"
 		python ..\\..\\..\\prep-for-dotnet-pycco.py $f
+		pycco $f.annotated -d ..\\..\\docs\\dotnet -l javascript 
 		pycco $f.annotated -d ..\\..\\docs\\dotnet -l javascript 
 		rm $f.annotated		
     else

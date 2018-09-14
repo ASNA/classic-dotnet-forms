@@ -1,0 +1,16 @@
+﻿Using System
+Using System.Text
+Using System.Windows
+Using System.Windows.Forms 
+
+BegClass Startup Access(*Public)
+   
+    BegSr Main Shared(*Yes) Access(*Public) Attributes(System.STAThread())
+        DclSrParm Args Type(*String) Rank(1)
+
+        DclFld f Type(formMain) New()
+
+        Application.EnableVisualStyles()
+        Application.Run(f) 		
+    EndSr 
+EndClass

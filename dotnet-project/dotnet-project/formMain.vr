@@ -6,6 +6,8 @@ Using System.Drawing
 Using System.Text
 Using System.Windows.Forms
 
+DclNamespace dotnet_project
+
 BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Yes)
 
 	/region Default Constructor
@@ -23,20 +25,84 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
 
 	/endregion
 
-	BegSr Form1_Load Access(*Private) Event(*this.Load)
-		DclSrParm sender *Object
-		DclSrParm e System.EventArgs
-        
+//    DclFld ModalForm Type(formModal) 
+//    DclFld NonModalForm Type(formNonModal) 
+
+    DclConst MODAL Value('1')
+    DclConst NONMODAL Value('2')
+
+	BegSr formMain_Load Access(*Private) Event(*this.Load)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
 		// Occurs when form is first loaded.
 		// Put form "startup" code here (ie open files).
+
+        PopulateComboBox()
 	EndSr
 
-	BegSr Form1_FormClosing Access(*Private) Event(*this.FormClosing)
+    BegSr PopulateComboBox
+        comboboxFormType.DisplayMember = 'Text'
+        comboboxFormType.ValueMember = 'Value'
+        comboboxFormType.Items.Add(*New ComboboxItem('Show', MODAL))
+        comboboxFormType.Items.Add(*New ComboboxItem('ShowDialog', NONMODAL))
+        comboboxFormType.SelectedIndex = 0
+    EndSr
+
+	BegSr formMain_FormClosing Access(*Private) Event(*this.FormClosing)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
-        
-		// Occurs when form is closing.    
-		// Put form "housecleaning" code here (ie close files).
+
 	EndSr
 
+	BegSr buttonDisplayForm_Click Access(*Private) Event(*this.buttonDisplayForm.Click)
+		DclSrParm sender Type(*Object)
+		DclSrParm e Type(System.EventArgs)
+
+        DclFld SelectedItem Type(ComboboxItem)
+
+        SelectedItem = comboboxFormType.SelectedItem *As ComboboxItem 
+        If SelectedItem.Value = MODAL
+            ShowModalForm()
+        Else 
+            ShowNonModalForm()
+        EndIf  
+	EndSr
+
+    BegSr ShowModalForm
+        DclFld ModalForm Type(formModal) New()
+
+        ModalForm.Show()        
+    EndSr
+
+    BegSr ShowNonModalForm
+        DclFld NonModalForm Type(formNonModal) New()
+
+        DclFld dr Type(DialogResult) 
+
+        dr = NonModalForm.ShowDialog()
+        If (dr = DialogResult.OK) 
+            MsgBox 'OK was clicked'
+        Else
+            MsgBox 'Cancel was clicked'
+        Endif 
+    EndSr
+
+	
 EndClass
+
+BegClass ComboboxItem
+
+    DclProp Text Type(*String) Access(*Public)
+    DclProp Value Type(*String) Access(*Public) 
+    
+    BegConstructor Access(*Public) 
+        DclSrParm Text Type(*String) 
+        DclSrParm Value Type(*String) 
+
+        *This.Text = Text
+        *This.Value = Value 
+    EndConstructor  
+
+
+EndClass 
