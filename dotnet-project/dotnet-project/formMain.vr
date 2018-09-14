@@ -1,5 +1,6 @@
 ﻿Using System
 Using System.Collections
+Using System.Collections.Generic
 Using System.ComponentModel
 Using System.Data
 Using System.Drawing
@@ -55,11 +56,19 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
 	EndSr
 
     BegSr PopulateComboBox
-        // The combobox is populated with instances of the ComboBoxItem class. This is a 
-        // user-provided class. These two lines tell the combobox what ComboBoxItem properties
-        // identify the member displayed and the member to use for an associated value. 
+        // The combobox is populated with instances of the `ComboBoxItem` class. This is a 
+        // user-provided class. Setting the `DisplayMember` tells teh combobox what property
+        // from the `ComboBoxItem` instance is displayed as text in the combobox.         
         comboboxFormType.DisplayMember = 'Text'
-        comboboxFormType.ValueMember = 'IntegerValue'
+        
+        // Setting the `ValueMember` property isn't necessary. If you read about the [`SelectedValue`
+        // in the ComboBox docs](https://goo.gl/Kkh1QU) is sure seems like if you sent 
+        // the ValueMember you should be able to use the ComboBox's `SelectedValue` property 
+        // to determine the selected value (duh!). The docs are poorly written and SelectedValue
+        // only works when the Items property is databound to a list. That's more trouble than 
+        // it's worth. Instead, as you'll see in farther on down in the code, we'll avoid the
+        // the need for the `SelectedValue` property by using the `SelectedItem` property. 
+        //- comboboxFormType.ValueMember = 'IntegerValue'
 
         // Add a combobox entry for the `Show` method.
         comboboxFormType.Items.Add(*New ComboboxItem('Show', NONMODAL))
@@ -84,21 +93,18 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
 
         // The combobox doesn't have the first item selected by default. 
         // Like all ordinal positioning in .NET, the SelectedIndex property 
-        // is zero-based./ 
+        // is zero-based. 
         comboboxFormType.SelectedIndex = 0
     EndSr
-
-	BegSr formMain_FormClosing Access(*Private) Event(*this.FormClosing)
-		DclSrParm sender Type(*Object)
-		DclSrParm e Type(System.Windows.Forms.FormClosingEventArgs)
-
-	EndSr
 
 	BegSr buttonDisplayForm_Click Access(*Private) Event(*this.buttonDisplayForm.Click)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
         DclFld SelectedItem Type(ComboboxItem)
+        DclFld FormSelection Type(*Integer4) 
+
+        FormSelection = comboboxFormType.SelectedValue *As *Integer4 
 
         SelectedItem = comboboxFormType.SelectedItem *As ComboboxItem 
         If SelectedItem = *Nothing 
