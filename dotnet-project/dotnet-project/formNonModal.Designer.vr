@@ -6,6 +6,7 @@ BegClass formNonModal Partial(*Yes)
 	BegSr InitializeComponent
 		*this.buttonHide = *new System.Windows.Forms.Button()
 		*this.buttonClose = *new System.Windows.Forms.Button()
+		*this.textboxName = *new System.Windows.Forms.TextBox()
 		*this.SuspendLayout()
 		//
 		//buttonHide
@@ -20,7 +21,7 @@ BegClass formNonModal Partial(*Yes)
 		//
 		//buttonClose
 		//
-		*this.buttonClose.Location = *new System.Drawing.Point(186I, 103I)
+		*this.buttonClose.Location = *new System.Drawing.Point(270I, 103I)
 		*this.buttonClose.Margin = *new System.Windows.Forms.Padding(4I, 5I, 4I, 5I)
 		*this.buttonClose.Name = "buttonClose"
 		*this.buttonClose.Size = *new System.Drawing.Size(112I, 35I)
@@ -28,22 +29,33 @@ BegClass formNonModal Partial(*Yes)
 		*this.buttonClose.Text = "Explicit close"
 		*this.buttonClose.UseVisualStyleBackColor = *True
 		//
+		//textboxName
+		//
+		*this.textboxName.Location = *new System.Drawing.Point(66I, 42I)
+		*this.textboxName.Name = "textboxName"
+		*this.textboxName.Size = *new System.Drawing.Size(316I, 26I)
+		*this.textboxName.TabIndex = 2I
+		//
 		//formNonModal
 		//
 		*this.AutoScaleDimensions = *new System.Drawing.SizeF(9, 20)
 		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		*this.ClientSize = *new System.Drawing.Size(897I, 402I)
+		*this.ClientSize = *new System.Drawing.Size(447I, 219I)
+		*this.Controls.Add(*this.textboxName)
 		*this.Controls.Add(*this.buttonClose)
 		*this.Controls.Add(*this.buttonHide)
 		*this.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
 		*this.Margin = *new System.Windows.Forms.Padding(4I, 5I, 4I, 5I)
 		*this.Name = "formNonModal"
+		*this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		*this.Text = "Non modal form - shown with Show()"
 		*this.ResumeLayout(*False)
+		*this.PerformLayout()
 	EndSr
 	
 	DclFld buttonHide Type(System.Windows.Forms.Button) Access(*Private) WithEvents(*Yes)
 	DclFld buttonClose Type(System.Windows.Forms.Button) Access(*Private) WithEvents(*Yes)
+	DclFld textboxName Type(System.Windows.Forms.TextBox) Access(*Public) WithEvents(*Yes)
 	//Required by the Windows Form Designer
 	DclFld components Type(System.ComponentModel.IContainer) Inz(*Nothing)
 	

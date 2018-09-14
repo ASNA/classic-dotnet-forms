@@ -50,6 +50,14 @@ BegClass formModal Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Y
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 	EndSr
+
+    BegFunc GetCustomerInfo Type(CustomerInfo) Access(*Public) 
+        DclFld ci Type(CustomerInfo) New()
+
+        ci.Name = textboxName.Text 
+
+        LeaveSr ci 
+    EndFunc 
 	
 
 	

@@ -40,6 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxItem.vr">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="CustomerInfo.vr">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="formMain.Designer.vr">
       <SubType>Code</SubType>
       <DependentUpon>formMain.vr</DependentUpon>

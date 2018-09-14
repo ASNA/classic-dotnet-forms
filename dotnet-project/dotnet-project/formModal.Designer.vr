@@ -1,11 +1,13 @@
 ﻿DclNamespace dotnet_project
 BegClass formModal Partial(*Yes)
+	DclFld textboxName Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
 
 	// Required method for Designer support - do not modify
 	// the contents of this method with the code editor.
 	BegSr InitializeComponent
 		*this.buttonOK = *new System.Windows.Forms.Button()
 		*this.buttonCancel = *new System.Windows.Forms.Button()
+		*this.textboxName = *new System.Windows.Forms.TextBox()
 		*this.SuspendLayout()
 		//
 		//buttonOK
@@ -30,18 +32,28 @@ BegClass formModal Partial(*Yes)
 		*this.buttonCancel.Text = "Cancel"
 		*this.buttonCancel.UseVisualStyleBackColor = *True
 		//
+		//textboxName
+		//
+		*this.textboxName.Location = *new System.Drawing.Point(60I, 38I)
+		*this.textboxName.Name = "textboxName"
+		*this.textboxName.Size = *new System.Drawing.Size(278I, 26I)
+		*this.textboxName.TabIndex = 3I
+		//
 		//formModal
 		//
 		*this.AutoScaleDimensions = *new System.Drawing.SizeF(9, 20)
 		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		*this.ClientSize = *new System.Drawing.Size(410I, 320I)
+		*this.Controls.Add(*this.textboxName)
 		*this.Controls.Add(*this.buttonCancel)
 		*this.Controls.Add(*this.buttonOK)
 		*this.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
 		*this.Margin = *new System.Windows.Forms.Padding(4I, 5I, 4I, 5I)
 		*this.Name = "formModal"
+		*this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		*this.Text = "Modal form - shown with ShowDialog()"
 		*this.ResumeLayout(*False)
+		*this.PerformLayout()
 	EndSr
 	
 	DclFld buttonOK Type(System.Windows.Forms.Button) Access(*Private) WithEvents(*Yes)

@@ -6,14 +6,16 @@ BegClass formMain Partial(*Yes)
 	BegSr InitializeComponent
 		*this.buttonDisplayForm = *new System.Windows.Forms.Button()
 		*this.comboboxFormType = *new System.Windows.Forms.ComboBox()
-		*this.textBox1 = *new System.Windows.Forms.TextBox()
+		*this.textboxName = *new System.Windows.Forms.TextBox()
 		*this.label1 = *new System.Windows.Forms.Label()
 		*this.textboxNotes = *new System.Windows.Forms.TextBox()
+		*this.label2 = *new System.Windows.Forms.Label()
+		*this.label3 = *new System.Windows.Forms.Label()
 		*this.SuspendLayout()
 		//
 		//buttonDisplayForm
 		//
-		*this.buttonDisplayForm.Location = *new System.Drawing.Point(86I, 195I)
+		*this.buttonDisplayForm.Location = *new System.Drawing.Point(27I, 216I)
 		*this.buttonDisplayForm.Margin = *new System.Windows.Forms.Padding(4I, 5I, 4I, 5I)
 		*this.buttonDisplayForm.Name = "buttonDisplayForm"
 		*this.buttonDisplayForm.Size = *new System.Drawing.Size(185I, 35I)
@@ -24,22 +26,23 @@ BegClass formMain Partial(*Yes)
 		//comboboxFormType
 		//
 		*this.comboboxFormType.FormattingEnabled = *True
-		*this.comboboxFormType.Location = *new System.Drawing.Point(86I, 122I)
+		*this.comboboxFormType.Location = *new System.Drawing.Point(27I, 152I)
 		*this.comboboxFormType.Name = "comboboxFormType"
 		*this.comboboxFormType.Size = *new System.Drawing.Size(185I, 28I)
 		*this.comboboxFormType.TabIndex = 1I
 		//
-		//textBox1
+		//textboxName
 		//
-		*this.textBox1.Location = *new System.Drawing.Point(86I, 80I)
-		*this.textBox1.Name = "textBox1"
-		*this.textBox1.Size = *new System.Drawing.Size(185I, 26I)
-		*this.textBox1.TabIndex = 2I
+		*this.textboxName.AcceptsReturn = *True
+		*this.textboxName.Location = *new System.Drawing.Point(27I, 80I)
+		*this.textboxName.Name = "textboxName"
+		*this.textboxName.Size = *new System.Drawing.Size(185I, 26I)
+		*this.textboxName.TabIndex = 2I
 		//
 		//label1
 		//
 		*this.label1.AutoSize = *True
-		*this.label1.Location = *new System.Drawing.Point(82I, 56I)
+		*this.label1.Location = *new System.Drawing.Point(23I, 56I)
 		*this.label1.Name = "label1"
 		*this.label1.Size = *new System.Drawing.Size(51I, 20I)
 		*this.label1.TabIndex = 3I
@@ -47,37 +50,63 @@ BegClass formMain Partial(*Yes)
 		//
 		//textboxNotes
 		//
+		*this.textboxNotes.Anchor = ((((System.Windows.Forms.AnchorStyles.Top *BitOr System.Windows.Forms.AnchorStyles.Bottom) *BitOr System.Windows.Forms.AnchorStyles.Left) *BitOr System.Windows.Forms.AnchorStyles.Right) *As System.Windows.Forms.AnchorStyles)
 		*this.textboxNotes.Font = *new System.Drawing.Font("Source Code Pro", 9, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
-		*this.textboxNotes.Location = *new System.Drawing.Point(326I, 80I)
+		*this.textboxNotes.Location = *new System.Drawing.Point(238I, 80I)
 		*this.textboxNotes.Multiline = *True
 		*this.textboxNotes.Name = "textboxNotes"
 		*this.textboxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		*this.textboxNotes.Size = *new System.Drawing.Size(519I, 425I)
+		*this.textboxNotes.Size = *new System.Drawing.Size(567I, 444I)
 		*this.textboxNotes.TabIndex = 4I
+		//
+		//label2
+		//
+		*this.label2.Anchor = ((((System.Windows.Forms.AnchorStyles.Top *BitOr System.Windows.Forms.AnchorStyles.Bottom) *BitOr System.Windows.Forms.AnchorStyles.Left) *BitOr System.Windows.Forms.AnchorStyles.Right) *As System.Windows.Forms.AnchorStyles)
+		*this.label2.AutoSize = *True
+		*this.label2.Location = *new System.Drawing.Point(231I, 56I)
+		*this.label2.Name = "label2"
+		*this.label2.Size = *new System.Drawing.Size(37I, 20I)
+		*this.label2.TabIndex = 5I
+		*this.label2.Text = "Info"
+		//
+		//label3
+		//
+		*this.label3.Anchor = ((((System.Windows.Forms.AnchorStyles.Top *BitOr System.Windows.Forms.AnchorStyles.Bottom) *BitOr System.Windows.Forms.AnchorStyles.Left) *BitOr System.Windows.Forms.AnchorStyles.Right) *As System.Windows.Forms.AnchorStyles)
+		*this.label3.AutoSize = *True
+		*this.label3.Location = *new System.Drawing.Point(23I, 128I)
+		*this.label3.Name = "label3"
+		*this.label3.Size = *new System.Drawing.Size(94I, 20I)
+		*this.label3.TabIndex = 6I
+		*this.label3.Text = "Display type"
 		//
 		//formMain
 		//
 		*this.AutoScaleDimensions = *new System.Drawing.SizeF(9, 20)
 		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		*this.ClientSize = *new System.Drawing.Size(910I, 551I)
+		*this.ClientSize = *new System.Drawing.Size(832I, 551I)
+		*this.Controls.Add(*this.label3)
+		*this.Controls.Add(*this.label2)
 		*this.Controls.Add(*this.textboxNotes)
 		*this.Controls.Add(*this.label1)
-		*this.Controls.Add(*this.textBox1)
+		*this.Controls.Add(*this.textboxName)
 		*this.Controls.Add(*this.comboboxFormType)
 		*this.Controls.Add(*this.buttonDisplayForm)
 		*this.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
 		*this.Margin = *new System.Windows.Forms.Padding(4I, 5I, 4I, 5I)
 		*this.Name = "formMain"
-		*this.Text = "formMain"
+		*this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		*this.Text = "AVR for .NET form display examples"
 		*this.ResumeLayout(*False)
 		*this.PerformLayout()
 	EndSr
 	
 	DclFld buttonDisplayForm Type(System.Windows.Forms.Button) Access(*Private) WithEvents(*Yes)
 	DclFld comboboxFormType Type(System.Windows.Forms.ComboBox) Access(*Private) WithEvents(*Yes)
-	DclFld textBox1 Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
 	DclFld label1 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
 	DclFld textboxNotes Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
+	DclFld textboxName Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
+	DclFld label2 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	DclFld label3 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
 	//Required by the Windows Form Designer
 	DclFld components Type(System.ComponentModel.IContainer) Inz(*Nothing)
 	

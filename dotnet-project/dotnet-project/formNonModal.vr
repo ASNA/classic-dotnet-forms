@@ -54,5 +54,6 @@ BegClass formNonModal Extends(System.Windows.Forms.Form) Access(*Public) Partial
 
         *This.Close()
 	EndSr
-	
+
+
 EndClass

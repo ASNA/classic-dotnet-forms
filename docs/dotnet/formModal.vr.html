@@ -115,6 +115,14 @@ Put form "housecleaning" code here (ie close files).</p>
         <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
         <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
     <span class="nx">EndSr</span>
+
+    <span class="nx">BegFunc</span> <span class="nx">GetCustomerInfo</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">CustomerInfo</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
+        <span class="nx">DclFld</span> <span class="nx">ci</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">CustomerInfo</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
+
+        <span class="nx">ci</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">textboxName</span><span class="p">.</span><span class="nx">Text</span> 
+
+        <span class="nx">LeaveSr</span> <span class="nx">ci</span> 
+    <span class="nx">EndFunc</span> 
     
 
     

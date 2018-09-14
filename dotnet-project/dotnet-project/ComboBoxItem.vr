@@ -1,0 +1,30 @@
+﻿Using System
+Using System.Text
+
+DclNamespace dotnet_project
+
+BegClass ComboboxItem
+    DclProp Text Type(*String) Access(*Public)
+    DclProp StringValue Type(*String) Access(*Public) 
+    DclProp IntegerValue Type(*Integer4) Access(*Public) 
+    
+    BegConstructor Access(*Public) 
+    EndConstructor 
+
+    BegConstructor Access(*Public) 
+        DclSrParm Text Type(*String) 
+        DclSrParm StringValue Type(*String) 
+
+        *This.Text = Text
+        *This.StringValue = StringValue 
+    EndConstructor  
+
+    BegConstructor Access(*Public) 
+        DclSrParm Text Type(*String) 
+        DclSrParm IntegerValue Type(*Integer4) 
+
+        *This.Text = Text
+        *This.IntegerValue = IntegerValue 
+    EndConstructor  
+
+EndClass 

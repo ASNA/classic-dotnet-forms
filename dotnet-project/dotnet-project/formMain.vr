@@ -26,29 +26,65 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
 
 	/endregion
 
-  //  DclFld ModalForm Type(formModal) New()
-  //  DclFld NonModalForm Type(formNonModal) New()
+    // It might be advantageous to declare forms globally. 
+    // These lines do that. These lines are mostly here for 
+    // discussion purposes. 
+    //- DclFld ModalForm Type(formModal) New()
+    //- DclFld NonModalForm Type(formNonModal) New()
 
-    DclConst NONMODAL Value('1')
-    DclConst MODAL Value('2')
+    DclConst NONMODAL Value(1)
+    DclConst MODAL Value(2)
 
 	BegSr formMain_Load Access(*Private) Event(*this.Load)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
+        // The `notes.txt` file provides the application notes displayed in this form.
         DclFld BinaryPath Type(*String) 
 
+        // If you wanted the current user's documents use this code. 
+        //- BinaryPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+
+        // For this app the text file is stored in the same folder as the EXE file. 
         BinaryPath = AppDomain.CurrentDomain.BaseDirectory
+        // Read the entire file and store its contents in the `textboxNotes` textbox. 
         textboxNotes.Text = File.ReadAllText(BinaryPath + '\notes.txt') 
 
+        // Populate the combobox. 
         PopulateComboBox()
 	EndSr
 
     BegSr PopulateComboBox
+        // The combobox is populated with instances of the ComboBoxItem class. This is a 
+        // user-provided class. These two lines tell the combobox what ComboBoxItem properties
+        // identify the member displayed and the member to use for an associated value. 
         comboboxFormType.DisplayMember = 'Text'
-        comboboxFormType.ValueMember = 'Value'
+        comboboxFormType.ValueMember = 'IntegerValue'
+
+        // Add a combobox entry for the `Show` method.
         comboboxFormType.Items.Add(*New ComboboxItem('Show', NONMODAL))
+        // Add a combobox entry for the `ShowDialog` method.
         comboboxFormType.Items.Add(*New ComboboxItem('ShowDialog', MODAL))
+
+        // This code is the functional equivalent of the two lines above. 
+        // It illustrates how effective a good constructor can be in helping
+        // keep code succinct. 
+
+        //- DclFld ci Type(ComboBoxItem) 
+        //-
+        //- ci = *New ComboBoxItem()
+        //- ci.Text = 'Show'
+        //- ci.Value = 1
+        //- ComboBoxFormType.Items.Add(ci) 
+        //-
+        //- ci = *New ComboBoxItem()
+        //- ci.Text = 'ShowDialog'
+        //- ci.Value = 2
+        //- ComboBoxFormType.Items.Add(ci) 
+
+        // The combobox doesn't have the first item selected by default. 
+        // Like all ordinal positioning in .NET, the SelectedIndex property 
+        // is zero-based./ 
         comboboxFormType.SelectedIndex = 0
     EndSr
 
@@ -65,31 +101,39 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         DclFld SelectedItem Type(ComboboxItem)
 
         SelectedItem = comboboxFormType.SelectedItem *As ComboboxItem 
-        If SelectedItem.Value = MODAL
-            ShowModalForm()
+        If SelectedItem = *Nothing 
+            // Assign default value. 
         Else 
-            ShowNonModalForm()
-        EndIf  
-	EndSr
+            If SelectedItem.IntegerValue = MODAL
+                ShowModalForm()
+            Else 
+                ShowNonModalForm()
+            EndIf  
+        EndIf 
+    EndSr
 
     BegSr ShowNonModalForm
         DclFld NonModalForm Type(formNonModal) New()
 
-        NonModalForm.Show()        
+        NonModalForm.textboxName.Text = textboxName.Text 
+        NonModalForm.Show()      
     EndSr
 
     BegSr ShowModalForm
-        //DclFld ModalForm Type(formModal) New()
+        DclFld ModalForm Type(formModal) New()
         DclFld dr Type(DialogResult) 
+
+        DclFld ci Type(CustomerInfo)
 
         dr = ModalForm.ShowDialog()
         If (dr = DialogResult.OK) 
+            ci = ModalForm.GetCustomerInfo()  
             MsgBox 'OK was clicked'
         Else
             MsgBox 'Cancel was clicked'
         Endif 
 
-        // Although it's [disputed](https://goo.gl/fRKJrQ) it's a good practice
+        // Although it's [disputed](https://goo.gl/fRKJrQ), it's a good practice
         // to call a ShowDialog-displayed form's Dispose() before the form goes 
         // out of scope. 
         ModalForm.Dispose()
@@ -97,18 +141,4 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
     	
 EndClass
 
-BegClass ComboboxItem
 
-    DclProp Text Type(*String) Access(*Public)
-    DclProp Value Type(*String) Access(*Public) 
-    
-    BegConstructor Access(*Public) 
-        DclSrParm Text Type(*String) 
-        DclSrParm Value Type(*String) 
-
-        *This.Text = Text
-        *This.Value = Value 
-    EndConstructor  
-
-
-EndClass 
