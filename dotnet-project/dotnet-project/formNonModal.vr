@@ -29,6 +29,7 @@ BegClass formNonModal Extends(System.Windows.Forms.Form) Access(*Public) Partial
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
+        //*This.Parent.Text = 'roger' 
 		// Occurs when form is first loaded.
 		// Put form "startup" code here (ie open files).
 	EndSr

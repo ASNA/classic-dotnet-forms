@@ -80,11 +80,7 @@ discussion purposes. </p>
     <span class="c1">// DclFld NonModalForm Type(formNonModal) New()</span>
 
     <span class="nx">DclConst</span> <span class="nx">NONMODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nx">DclConst</span> <span class="nx">MODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-    <span class="nx">BegSr</span> <span class="nx">formMain_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
+    <span class="nx">DclConst</span> <span class="nx">MODAL</span> <span class="nx">Value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -93,10 +89,12 @@ discussion purposes. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
-      <p>The <code>notes.txt</code> file provides the application notes displayed in this form.</p>
+      <p>Fires when the form is first loaded. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">DclFld</span> <span class="nx">BinaryPath</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">formMain_Load</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">Load</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -105,10 +103,10 @@ discussion purposes. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-5'>#</a>
       </div>
-      <p>If you wanted the current user's documents use this code. </p>
+      <p>The <code>notes.txt</code> file provides the application notes displayed in this form.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="c1">// BinaryPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)</span></pre></div>
+      <div class="highlight"><pre>        <span class="nx">DclFld</span> <span class="nx">BinaryPath</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -117,10 +115,10 @@ discussion purposes. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-6'>#</a>
       </div>
-      <p>For this app the text file is stored in the same folder as the EXE file. </p>
+      <p>If you wanted the current user's documents use this code. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">BinaryPath</span> <span class="o">=</span> <span class="nx">AppDomain</span><span class="p">.</span><span class="nx">CurrentDomain</span><span class="p">.</span><span class="nx">BaseDirectory</span></pre></div>
+      <div class="highlight"><pre>        <span class="c1">// BinaryPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -129,10 +127,10 @@ discussion purposes. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-7'>#</a>
       </div>
-      <p>Read the entire file and store its contents in the <code>textboxNotes</code> textbox. </p>
+      <p>For this app the text file is stored in the same folder as the EXE file. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">textboxNotes</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">File</span><span class="p">.</span><span class="nx">ReadAllText</span><span class="p">(</span><span class="nx">BinaryPath</span> <span class="o">+</span> <span class="s1">&#39;\notes.txt&#39;</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre>        <span class="nx">BinaryPath</span> <span class="o">=</span> <span class="nx">AppDomain</span><span class="p">.</span><span class="nx">CurrentDomain</span><span class="p">.</span><span class="nx">BaseDirectory</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -141,13 +139,10 @@ discussion purposes. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-8'>#</a>
       </div>
-      <p>Populate the combobox. </p>
+      <p>Read the entire file and store its contents in the <code>textboxNotes</code> textbox. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">PopulateComboBox</span><span class="p">()</span>
-    <span class="nx">EndSr</span>
-
-    <span class="nx">BegSr</span> <span class="nx">PopulateComboBox</span></pre></div>
+      <div class="highlight"><pre>        <span class="nx">textboxNotes</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">File</span><span class="p">.</span><span class="nx">ReadAllText</span><span class="p">(</span><span class="nx">BinaryPath</span> <span class="o">+</span> <span class="s1">&#39;\notes.txt&#39;</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -155,6 +150,31 @@ discussion purposes. </p>
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Populate the combobox. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">PopulateComboBox</span><span class="p">()</span>
+    <span class="nx">EndSr</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Populate the ComboBox with ComboBoxItems (a class provided in this project).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">PopulateComboBox</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
       </div>
       <p>The combobox is populated with instances of the <code>ComboBoxItem</code> class. This is a 
 user-provided class. Setting the <code>DisplayMember</code> tells teh combobox what property
@@ -165,45 +185,21 @@ from the <code>ComboBoxItem</code> instance is displayed as text in the combobox
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-10'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-10'>#</a>
-      </div>
-      <p>Setting the <code>ValueMember</code> property isn't necessary. If you read about the <a href="https://goo.gl/Kkh1QU"><code>SelectedValue</code>
-in the ComboBox docs</a> is sure seems like if you sent 
-the ValueMember you should be able to use the ComboBox's <code>SelectedValue</code> property 
-to determine the selected value (duh!). The docs are poorly written and SelectedValue
-only works when the Items property is databound to a list. That's more trouble than 
-it's worth. Instead, as you'll see in farther on down in the code, we'll avoid the
-the need for the <code>SelectedValue</code> property by using the <code>SelectedItem</code> property. </p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre>        <span class="c1">// comboboxFormType.ValueMember = &#39;IntegerValue&#39;</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
-  <div class='section' id='section-11'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-11'>#</a>
-      </div>
-      <p>Add a combobox entry for the <code>Show</code> method.</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;Show&#39;</span><span class="p">,</span> <span class="nx">NONMODAL</span><span class="p">))</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
   <div class='section' id='section-12'>
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-12'>#</a>
       </div>
-      <p>Add a combobox entry for the <code>ShowDialog</code> method.</p>
+      <p>Setting the <code>ValueMember</code> property isn't necessary. If you read about the <a href="https://goo.gl/Kkh1QU"><code>SelectedValue</code>
+property in the <code>ComboBox</code> docs</a> is sure seems like if you set 
+the <code>ValueMember</code> you should be able to use the <code>ComboBox's</code> <code>SelectedValue</code> property 
+to determine the selected value (duh!). The docs are poorly written and <code>SelectedValue</code>
+only works when the <code>Items</code> property is databound to a list. That's more trouble than 
+it's worth. Instead, as you'll see farther on down in the code, we'll avoid the
+the need for the <code>SelectedValue</code> property by using the <code>SelectedItem</code> property. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;ShowDialog&#39;</span><span class="p">,</span> <span class="nx">MODAL</span><span class="p">))</span></pre></div>
+      <div class="highlight"><pre>        <span class="c1">// comboboxFormType.ValueMember = &#39;IntegerValue&#39;</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -212,9 +208,37 @@ the need for the <code>SelectedValue</code> property by using the <code>Selected
       <div class='octowrap'>
         <a class='octothorpe' href='#section-13'>#</a>
       </div>
-      <p>This code is the functional equivalent of the two lines above. 
+      <p>Add a combobox entry for the <code>Show</code> method.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;Show&#39;</span><span class="p">,</span> <span class="nx">NONMODAL</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>Add a combobox entry for the <code>ShowDialog</code> method.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">Items</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">ComboboxItem</span><span class="p">(</span><span class="s1">&#39;ShowDialog&#39;</span><span class="p">,</span> <span class="nx">MODAL</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>This code is the functional equivalent of the two <code>Items.Add</code> lines above. 
 It illustrates how effective a good constructor can be in helping
-keep code succinct. </p>
+keep code succinct. With a good constructor you can add a item with
+one line of code; without, you need four lines per item plus one for 
+a <code>ComboBoxItem</code> declaration. Less code isn't always better--don't ever 
+sacrifice clarity for brevity. In this case, though, the brevity isn't 
+penalizing. </p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="c1">// DclFld ci Type(ComboBoxItem) </span>
@@ -231,10 +255,10 @@ keep code succinct. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-14'>
+  <div class='section' id='section-16'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-14'>#</a>
+        <a class='octothorpe' href='#section-16'>#</a>
       </div>
       <p>The combobox doesn't have the first item selected by default. 
 Like all ordinal positioning in .NET, the SelectedIndex property 
@@ -242,47 +266,212 @@ is zero-based. </p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">SelectedIndex</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nx">EndSr</span>
-
-    <span class="nx">BegSr</span> <span class="nx">buttonDisplayForm_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonDisplayForm</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span>
-
-        <span class="nx">DclFld</span> <span class="nx">SelectedItem</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">ComboboxItem</span><span class="p">)</span>
-        <span class="nx">DclFld</span> <span class="nx">FormSelection</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span> 
-
-        <span class="nx">FormSelection</span> <span class="o">=</span> <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">SelectedValue</span> <span class="o">*</span><span class="nx">As</span> <span class="o">*</span><span class="nx">Integer4</span> 
-
-        <span class="nx">SelectedItem</span> <span class="o">=</span> <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">SelectedItem</span> <span class="o">*</span><span class="nx">As</span> <span class="nx">ComboboxItem</span> 
-        <span class="nx">If</span> <span class="nx">SelectedItem</span> <span class="o">=</span> <span class="o">*</span><span class="nx">Nothing</span></pre></div>
+    <span class="nx">EndSr</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-15'>
+  <div class='section' id='section-17'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-15'>#</a>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>Show the form type selected. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">buttonDisplayForm_Click</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Private</span><span class="p">)</span> <span class="nx">Event</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="nx">buttonDisplayForm</span><span class="p">.</span><span class="nx">Click</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">sender</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Object</span><span class="p">)</span>
+        <span class="nx">DclSrParm</span> <span class="nx">e</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">EventArgs</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>As mentioned above, the <code>ComboBox's</code> <code>SelectedValue</code> works only for databound lists. 
+We didn't do that here--we used the <code>Item</code> property's <code>Add</code> method to build the 
+list. And even though we didn't use a loop over a file as you might do for some dynamic
+ComboBox loading, if you did that you'd probably still use <code>Item.Add</code>. So, SelectedValue
+is rarely gonna be any help. Instead we'll use the <code>SelectedItem</code> property.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>Declare a variable of type <code>ComboBoxItem</code>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">DclFld</span> <span class="nx">SelectedItem</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">ComboBoxItem</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>Assign the ComboBox's <code>SelectedItem</code> property to that work variable, 
+sure to cast it as a <code>ComboBoxItem</code> (that's what <code>*As ComboBoxItem</code> does).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">SelectedItem</span> <span class="o">=</span> <span class="nx">comboboxFormType</span><span class="p">.</span><span class="nx">SelectedItem</span> <span class="o">*</span><span class="nx">As</span> <span class="nx">ComboBoxItem</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>Just to be defensive, make sure the <code>SelectedItem</code> isn't nothing. It can't be 
+in this app because the initial <code>SelectedIndex</code> value was set to zero in the 
+<code>formMain_Load</code> routine.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">If</span> <span class="nx">SelectedItem</span> <span class="o">=</span> <span class="o">*</span><span class="nx">Nothing</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
       </div>
       <p>Assign default value. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">Else</span> 
-            <span class="nx">If</span> <span class="nx">SelectedItem</span><span class="p">.</span><span class="nx">IntegerValue</span> <span class="o">=</span> <span class="nx">MODAL</span>
-                <span class="nx">ShowModalForm</span><span class="p">()</span>
+      <div class="highlight"><pre>        <span class="nx">Else</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>Display the form type displayed. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">If</span> <span class="nx">SelectedItem</span><span class="p">.</span><span class="nx">IntegerValue</span> <span class="o">=</span> <span class="nx">MODAL</span>
+                <span class="nx">DisplayModalForm</span><span class="p">()</span>
             <span class="nx">Else</span> 
-                <span class="nx">ShowNonModalForm</span><span class="p">()</span>
+                <span class="nx">DisplayNonModalForm</span><span class="p">()</span>
             <span class="nx">EndIf</span>  
         <span class="nx">EndIf</span> 
-    <span class="nx">EndSr</span>
-
-    <span class="nx">BegSr</span> <span class="nx">ShowNonModalForm</span>
-        <span class="nx">DclFld</span> <span class="nx">NonModalForm</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formNonModal</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
-
-        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">textboxName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">textboxName</span><span class="p">.</span><span class="nx">Text</span> 
-        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">()</span>      
-    <span class="nx">EndSr</span>
-
-    <span class="nx">BegSr</span> <span class="nx">ShowModalForm</span>
+    <span class="nx">EndSr</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>Display a non-modal form.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">DisplayNonModalForm</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>Declare and instance the NonModalForm. In AVR for .NET, 
+you always need to instance a form before it is displayed. Depending 
+on how frequently the form is displayed, and if you need its state to 
+persist, it may be better to instance the form globally instead of 
+at the method level (as is done here). </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">DclFld</span> <span class="nx">NonModalForm</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formNonModal</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>Assign this form's <code>textboxName.Text</code> value to the <code>textboxName.Text</code>
+owned by the NonModalForm. To reference a control like this on 
+another form, make sure the <code>Modifier</code> property for that control is 
+<code>Public</code>. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">textboxName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">textboxName</span><span class="p">.</span><span class="nx">Text</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
+      <p>Display the form. Calling Show without any arguments displays the nonmodal form.
+In this case, if the parent(ie, *This form) is minimized the child form (ie, NonModalForm)
+is not minimized. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-28'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-28'>#</a>
+      </div>
+      <p>Show has an overload that accepts one argument: the form to act as the child form's 
+parent. The Microsoft <a href="https://goo.gl/4pEd7K">Show docs</a> don't show this overload--but 
+the Visual Studio object browser does and its been there a long time. Calling Show 
+with the argument <code>*This</code>, makes this form the child's form's owner. One of the things 
+this does is minimizes the child when the parent minimizes (which is probably what you 
+want). </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="c1">// NonModalForm.Show(*This)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      <p>AVR has a Show opcode you could also use to show a non-modal form. AVR's Show opcode 
+behaves like the second <code>Show</code> method behavior discussed above--ensuring the child form 
+minimizes with the parent. While there is no functional difference between 
+  <code>NonModalForm.Show(*This)</code> 
+and 
+  <code>Show nonModalForm</code>
+the <code>Show</code> opcode may be confusing to VB.NET and C# programmers. My advice is to stick 
+with the <code>Show</code> method for that reason. That said, if you do, you do need to remember to
+pass the <code>*This</code> argument if you want the child-follows-parent minimizing behavior discussed. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">EndSr</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      <p>Display a modal form. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">DisplayModalForm</span>
         <span class="nx">DclFld</span> <span class="nx">ModalForm</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">formModal</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
         <span class="nx">DclFld</span> <span class="nx">dr</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">DialogResult</span><span class="p">)</span> 
 
@@ -298,13 +487,13 @@ is zero-based. </p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-16'>
+  <div class='section' id='section-31'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-16'>#</a>
+        <a class='octothorpe' href='#section-31'>#</a>
       </div>
       <p>Although it's <a href="https://goo.gl/fRKJrQ">disputed</a>, it's a good practice
-to call a ShowDialog-displayed form's Dispose() before the form goes 
+to call a ShowDialog-displayed form's Dispose() before that form goes 
 out of scope. </p>
     </div>
     <div class='code'>

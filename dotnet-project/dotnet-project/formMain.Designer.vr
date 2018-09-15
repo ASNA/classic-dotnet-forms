@@ -104,7 +104,7 @@ BegClass formMain Partial(*Yes)
 	DclFld comboboxFormType Type(System.Windows.Forms.ComboBox) Access(*Private) WithEvents(*Yes)
 	DclFld label1 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
 	DclFld textboxNotes Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
-	DclFld textboxName Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
+	DclFld textboxName Type(System.Windows.Forms.TextBox) Access(*Public) WithEvents(*Yes)
 	DclFld label2 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
 	DclFld label3 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
 	//Required by the Windows Form Designer

@@ -36,6 +36,7 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
     DclConst NONMODAL Value(1)
     DclConst MODAL Value(2)
 
+    // Fires when the form is first loaded. 
 	BegSr formMain_Load Access(*Private) Event(*this.Load)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
@@ -55,6 +56,7 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         PopulateComboBox()
 	EndSr
 
+    // Populate the ComboBox with ComboBoxItems (a class provided in this project).
     BegSr PopulateComboBox
         // The combobox is populated with instances of the `ComboBoxItem` class. This is a 
         // user-provided class. Setting the `DisplayMember` tells teh combobox what property
@@ -62,23 +64,27 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         comboboxFormType.DisplayMember = 'Text'
         
         // Setting the `ValueMember` property isn't necessary. If you read about the [`SelectedValue`
-        // in the ComboBox docs](https://goo.gl/Kkh1QU) is sure seems like if you sent 
-        // the ValueMember you should be able to use the ComboBox's `SelectedValue` property 
-        // to determine the selected value (duh!). The docs are poorly written and SelectedValue
-        // only works when the Items property is databound to a list. That's more trouble than 
-        // it's worth. Instead, as you'll see in farther on down in the code, we'll avoid the
+        // property in the `ComboBox` docs](https://goo.gl/Kkh1QU) is sure seems like if you set 
+        // the `ValueMember` you should be able to use the `ComboBox's` `SelectedValue` property 
+        // to determine the selected value (duh!). The docs are poorly written and `SelectedValue`
+        // only works when the `Items` property is databound to a list. That's more trouble than 
+        // it's worth. Instead, as you'll see farther on down in the code, we'll avoid the
         // the need for the `SelectedValue` property by using the `SelectedItem` property. 
         //- comboboxFormType.ValueMember = 'IntegerValue'
 
         // Add a combobox entry for the `Show` method.
         comboboxFormType.Items.Add(*New ComboboxItem('Show', NONMODAL))
+
         // Add a combobox entry for the `ShowDialog` method.
         comboboxFormType.Items.Add(*New ComboboxItem('ShowDialog', MODAL))
 
-        // This code is the functional equivalent of the two lines above. 
+        // This code is the functional equivalent of the two `Items.Add` lines above. 
         // It illustrates how effective a good constructor can be in helping
-        // keep code succinct. 
-
+        // keep code succinct. With a good constructor you can add a item with
+        // one line of code; without, you need four lines per item plus one for 
+        // a `ComboBoxItem` declaration. Less code isn't always better--don't ever 
+        // sacrifice clarity for brevity. In this case, though, the brevity isn't 
+        // penalizing. 
         //- DclFld ci Type(ComboBoxItem) 
         //-
         //- ci = *New ComboBoxItem()
@@ -97,35 +103,78 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         comboboxFormType.SelectedIndex = 0
     EndSr
 
+    // Show the form type selected. 
 	BegSr buttonDisplayForm_Click Access(*Private) Event(*this.buttonDisplayForm.Click)
 		DclSrParm sender Type(*Object)
 		DclSrParm e Type(System.EventArgs)
 
-        DclFld SelectedItem Type(ComboboxItem)
-        DclFld FormSelection Type(*Integer4) 
+        // As mentioned above, the `ComboBox's` `SelectedValue` works only for databound lists. 
+        // We didn't do that here--we used the `Item` property's `Add` method to build the 
+        // list. And even though we didn't use a loop over a file as you might do for some dynamic
+        // ComboBox loading, if you did that you'd probably still use `Item.Add`. So, SelectedValue
+        // is rarely gonna be any help. Instead we'll use the `SelectedItem` property.
 
-        FormSelection = comboboxFormType.SelectedValue *As *Integer4 
+        // Declare a variable of type `ComboBoxItem`.
+        DclFld SelectedItem Type(ComboBoxItem)
 
-        SelectedItem = comboboxFormType.SelectedItem *As ComboboxItem 
+        // Assign the ComboBox's `SelectedItem` property to that work variable, 
+        // sure to cast it as a `ComboBoxItem` (that's what `*As ComboBoxItem` does).
+        SelectedItem = comboboxFormType.SelectedItem *As ComboBoxItem 
+        // Just to be defensive, make sure the `SelectedItem` isn't nothing. It can't be 
+        // in this app because the initial `SelectedIndex` value was set to zero in the 
+        // `formMain_Load` routine.
         If SelectedItem = *Nothing 
             // Assign default value. 
         Else 
+            // Display the form type displayed. 
             If SelectedItem.IntegerValue = MODAL
-                ShowModalForm()
+                DisplayModalForm()
             Else 
-                ShowNonModalForm()
+                DisplayNonModalForm()
             EndIf  
         EndIf 
     EndSr
 
-    BegSr ShowNonModalForm
+    // Display a non-modal form.
+    BegSr DisplayNonModalForm
+        // Declare and instance the NonModalForm. In AVR for .NET, 
+        // you always need to instance a form before it is displayed. Depending 
+        // on how frequently the form is displayed, and if you need its state to 
+        // persist, it may be better to instance the form globally instead of 
+        // at the method level (as is done here). 
         DclFld NonModalForm Type(formNonModal) New()
 
+        // Assign this form's `textboxName.Text` value to the `textboxName.Text`
+        // owned by the NonModalForm. To reference a control like this on 
+        // another form, make sure the `Modifier` property for that control is 
+        // `Public`. 
         NonModalForm.textboxName.Text = textboxName.Text 
-        NonModalForm.Show()      
+        // Display the form. Calling Show without any arguments displays the nonmodal form.
+        // In this case, if the parent(ie, *This form) is minimized the child form (ie, NonModalForm)
+        // is not minimized. 
+        NonModalForm.Show()  
+        
+        // Show has an overload that accepts one argument: the form to act as the child form's 
+        // parent. The Microsoft [Show docs](https://goo.gl/4pEd7K) don't show this overload--but 
+        // the Visual Studio object browser does and its been there a long time. Calling Show 
+        // with the argument `*This`, makes this form the child's form's owner. One of the things 
+        // this does is minimizes the child when the parent minimizes (which is probably what you 
+        // want). 
+        //- NonModalForm.Show(*This) 
+        
+        // AVR has a Show opcode you could also use to show a non-modal form. AVR's Show opcode 
+        // behaves like the second `Show` method behavior discussed above--ensuring the child form 
+        // minimizes with the parent. While there is no functional difference between 
+        //   `NonModalForm.Show(*This)` 
+        // and 
+        //   `Show nonModalForm`
+        // the `Show` opcode may be confusing to VB.NET and C# programmers. My advice is to stick 
+        // with the `Show` method for that reason. That said, if you do, you do need to remember to
+        // pass the `*This` argument if you want the child-follows-parent minimizing behavior discussed. 
     EndSr
 
-    BegSr ShowModalForm
+    // Display a modal form. 
+    BegSr DisplayModalForm
         DclFld ModalForm Type(formModal) New()
         DclFld dr Type(DialogResult) 
 
@@ -140,7 +189,7 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         Endif 
 
         // Although it's [disputed](https://goo.gl/fRKJrQ), it's a good practice
-        // to call a ShowDialog-displayed form's Dispose() before the form goes 
+        // to call a ShowDialog-displayed form's Dispose() before that form goes 
         // out of scope. 
         ModalForm.Dispose()
     EndSr
