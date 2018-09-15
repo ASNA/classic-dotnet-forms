@@ -149,24 +149,26 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         // another form, make sure the `Modifier` property for that control is 
         // `Public`. 
         NonModalForm.textboxName.Text = textboxName.Text 
-        // Display the form. Calling `Show` without any arguments displays the nonmodal form.
-        // In this case, if the parent(ie, `*This` form) is minimized the child form (ie, NonModalForm)
-        // is not minimized. 
+        // There are three ways to show a non-modal form with AVR for .NET. A way is by 
+        // calling the form's `Show` method without any arguments. In this case, if the
+        // parent(ie, `*This` form) is minimized the child form (ie, NonModalForm)
+        // is not minimized. This behavior may cause the end-user some confusion--especially
+        // if both forms show in the Windows taskbar. 
         //- NonModalForm.Show()  
         
         // The `Show` method has an overload that accepts one argument: the form to act as the child form's 
         // parent. The Microsoft [Show docs](https://goo.gl/4pEd7K) don't show this overload--but 
-        // the Visual Studio object browser does and its been there a long time. Curiously, the Show
+        // the Visual Studio object browser does and its been there a long time. Curiously, the `Show`
         // method overload without an argument doesn't show in the object browser. And perhaps even more 
-        // curiously, the object browser does show both an overload for `ShowDialog` without an arugment 
+        // curiously, the object browser *does* show both an overload for `ShowDialog` without an arugment 
         // and overload for `ShowDialog` with the arugment. Go figure. 
         //
         // ![](https://goo.gl/13oxaG)
         //
         // Calling the `Show` method with `*This` as its argument makes this form the child form's
         // owner. One of the things this does is minimizes the child when the parent minimizes. This is 
-        // probably the most wanted behavior and the preferred way of displaying a non-modal form. 
-        NonModalForm.Show(*This) 
+        // probably the most wanted behavior and my preferred way of displaying a non-modal form. 
+        NonModalForm.Show(*This)
         
         // Like AVR Classic, AVR for .NET does have a `Show` opcode you could also use to show a 
         // non-modal form. AVR's `Show` opcode behaves like the `Show` method behavior shown 
@@ -179,11 +181,9 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         //
         // `Show NonModalForm` // AVR's Show opcode.
         //
-        // The `Show` opcode was probably included in AVR for .NET to help programmers coming to AVR         
-        // for .NET from AVR Classic. However, it may be confusing to VB.NET and C# programmers. Consider
-        // using the `Show` method exclusively to avoid confusion for non-AVR programmers. That said, if you 
-        // do, remember to pass the `*This` argument if you want the child-follows-parent 
-        // minimizing behavior discussed. 
+        // The `Show` opcode was included in AVR for .NET to help programmers coming to AVR         
+        // for .NET from AVR Classic. However, it may be confusing to VB.NET and C# programmers. You 
+        // make the call--use either the `Show` method (with `*This`, probably) or the `Show` opcode. 
         //- Show NonModalForm
     EndSr
 

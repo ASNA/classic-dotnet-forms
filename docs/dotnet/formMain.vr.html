@@ -417,9 +417,11 @@ another form, make sure the <code>Modifier</code> property for that control is
       <div class='octowrap'>
         <a class='octothorpe' href='#section-27'>#</a>
       </div>
-      <p>Display the form. Calling <code>Show</code> without any arguments displays the nonmodal form.
-In this case, if the parent(ie, <code>*This</code> form) is minimized the child form (ie, NonModalForm)
-is not minimized. </p>
+      <p>There are three ways to show a non-modal form with AVR for .NET. A way is by 
+calling the form's <code>Show</code> method without any arguments. In this case, if the
+parent(ie, <code>*This</code> form) is minimized the child form (ie, NonModalForm)
+is not minimized. This behavior may cause the end-user some confusion--especially
+if both forms show in the Windows taskbar. </p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="c1">// NonModalForm.Show()</span></pre></div>
@@ -433,14 +435,14 @@ is not minimized. </p>
       </div>
       <p>The <code>Show</code> method has an overload that accepts one argument: the form to act as the child form's 
 parent. The Microsoft <a href="https://goo.gl/4pEd7K">Show docs</a> don't show this overload--but 
-the Visual Studio object browser does and its been there a long time. Curiously, the Show
+the Visual Studio object browser does and its been there a long time. Curiously, the <code>Show</code>
 method overload without an argument doesn't show in the object browser. And perhaps even more 
-curiously, the object browser does show both an overload for <code>ShowDialog</code> without an arugment 
+curiously, the object browser <em>does</em> show both an overload for <code>ShowDialog</code> without an arugment 
 and overload for <code>ShowDialog</code> with the arugment. Go figure. </p>
 <p><img alt="" src="https://goo.gl/13oxaG" /></p>
 <p>Calling the <code>Show</code> method with <code>*This</code> as its argument makes this form the child form's
 owner. One of the things this does is minimizes the child when the parent minimizes. This is 
-probably the most wanted behavior and the preferred way of displaying a non-modal form. </p>
+probably the most wanted behavior and my preferred way of displaying a non-modal form. </p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">)</span></pre></div>
@@ -459,11 +461,9 @@ There is no functional difference between </p>
 <p><code>NonModalForm.Show(*This)</code> // The form's Show method.</p>
 <p>and </p>
 <p><code>Show NonModalForm</code> // AVR's Show opcode.</p>
-<p>The <code>Show</code> opcode was probably included in AVR for .NET to help programmers coming to AVR       <br />
-for .NET from AVR Classic. However, it may be confusing to VB.NET and C# programmers. Consider
-using the <code>Show</code> method exclusively to avoid confusion for non-AVR programmers. That said, if you 
-do, remember to pass the <code>*This</code> argument if you want the child-follows-parent 
-minimizing behavior discussed. </p>
+<p>The <code>Show</code> opcode was included in AVR for .NET to help programmers coming to AVR       <br />
+for .NET from AVR Classic. However, it may be confusing to VB.NET and C# programmers. You 
+make the call--use either the <code>Show</code> method (with <code>*This</code>, probably) or the <code>Show</code> opcode. </p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="c1">// Show NonModalForm</span>
