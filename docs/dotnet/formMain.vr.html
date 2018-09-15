@@ -422,7 +422,7 @@ In this case, if the parent(ie, *This form) is minimized the child form (ie, Non
 is not minimized. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">()</span></pre></div>
+      <div class="highlight"><pre>        <span class="c1">// NonModalForm.Show()</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -431,15 +431,17 @@ is not minimized. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-28'>#</a>
       </div>
-      <p>Show has an overload that accepts one argument: the form to act as the child form's 
+      <p>The <code>Show</code> method has an overload that accepts one argument: the form to act as the child form's 
 parent. The Microsoft <a href="https://goo.gl/4pEd7K">Show docs</a> don't show this overload--but 
-the Visual Studio object browser does and its been there a long time. Calling Show 
-with the argument <code>*This</code>, makes this form the child's form's owner. One of the things 
-this does is minimizes the child when the parent minimizes (which is probably what you 
-want). </p>
+the Visual Studio object browser does and its been there a long time. Curiously, the Show
+method overload without an argument doesn't show in the object browser.</p>
+<p><img alt="" src="https://goo.gl/13oxaG" /></p>
+<p>Calling Show with the argument <code>*This</code>, makes this form the child's form's owner. One 
+of the things  this does is minimizes the child when the parent minimizes (which is 
+probably what you want). </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="c1">// NonModalForm.Show(*This)</span></pre></div>
+      <div class="highlight"><pre>        <span class="nx">NonModalForm</span><span class="p">.</span><span class="nx">Show</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>

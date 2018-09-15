@@ -152,15 +152,19 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         // Display the form. Calling Show without any arguments displays the nonmodal form.
         // In this case, if the parent(ie, *This form) is minimized the child form (ie, NonModalForm)
         // is not minimized. 
-        NonModalForm.Show()  
+        //- NonModalForm.Show()  
         
-        // Show has an overload that accepts one argument: the form to act as the child form's 
+        // The `Show` method has an overload that accepts one argument: the form to act as the child form's 
         // parent. The Microsoft [Show docs](https://goo.gl/4pEd7K) don't show this overload--but 
-        // the Visual Studio object browser does and its been there a long time. Calling Show 
-        // with the argument `*This`, makes this form the child's form's owner. One of the things 
-        // this does is minimizes the child when the parent minimizes (which is probably what you 
-        // want). 
-        //- NonModalForm.Show(*This) 
+        // the Visual Studio object browser does and its been there a long time. Curiously, the Show
+        // method overload without an argument doesn't show in the object browser.
+        //
+        // ![](https://goo.gl/13oxaG)
+        //
+        // Calling Show with the argument `*This`, makes this form the child's form's owner. One 
+        // of the things  this does is minimizes the child when the parent minimizes (which is 
+        // probably what you want). 
+        NonModalForm.Show(*This) 
         
         // AVR has a Show opcode you could also use to show a non-modal form. AVR's Show opcode 
         // behaves like the second `Show` method behavior discussed above--ensuring the child form 
