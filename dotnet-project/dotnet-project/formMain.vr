@@ -165,12 +165,17 @@ BegClass formMain Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Ye
         // AVR has a Show opcode you could also use to show a non-modal form. AVR's Show opcode 
         // behaves like the second `Show` method behavior discussed above--ensuring the child form 
         // minimizes with the parent. While there is no functional difference between 
-        //   `NonModalForm.Show(*This)` 
+        //
+        // `NonModalForm.Show(*This)` 
+        //
         // and 
-        //   `Show nonModalForm`
+        //
+        // `Show NonModalForm`
+        //
         // the `Show` opcode may be confusing to VB.NET and C# programmers. My advice is to stick 
         // with the `Show` method for that reason. That said, if you do, you do need to remember to
         // pass the `*This` argument if you want the child-follows-parent minimizing behavior discussed. 
+        //- Show NonModalForm
     EndSr
 
     // Display a modal form. 

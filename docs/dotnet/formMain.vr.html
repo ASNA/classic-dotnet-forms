@@ -450,16 +450,17 @@ want). </p>
       </div>
       <p>AVR has a Show opcode you could also use to show a non-modal form. AVR's Show opcode 
 behaves like the second <code>Show</code> method behavior discussed above--ensuring the child form 
-minimizes with the parent. While there is no functional difference between 
-  <code>NonModalForm.Show(*This)</code> 
-and 
-  <code>Show nonModalForm</code>
-the <code>Show</code> opcode may be confusing to VB.NET and C# programmers. My advice is to stick 
+minimizes with the parent. While there is no functional difference between </p>
+<p><code>NonModalForm.Show(*This)</code> </p>
+<p>and </p>
+<p><code>Show NonModalForm</code></p>
+<p>the <code>Show</code> opcode may be confusing to VB.NET and C# programmers. My advice is to stick 
 with the <code>Show</code> method for that reason. That said, if you do, you do need to remember to
 pass the <code>*This</code> argument if you want the child-follows-parent minimizing behavior discussed. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">EndSr</span></pre></div>
+      <div class="highlight"><pre>        <span class="c1">// Show NonModalForm</span>
+    <span class="nx">EndSr</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
